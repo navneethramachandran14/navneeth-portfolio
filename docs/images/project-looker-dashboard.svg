@@ -1,15 +1,14 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="700" viewBox="0 0 1200 700">
-  <rect width="1200" height="700" fill="#0b1220"/>
-  <text x="50%" y="60" fill="#e5e7eb" font-size="28" text-anchor="middle" font-family="Arial,Helvetica,sans-serif">Looker Studio KPI Dashboard (Illustrative)</text>
-  <g transform="translate(80,120)" fill="none" stroke="#60a5fa" stroke-width="3">
-    <polyline points="0,400 150,360 300,420 450,280 600,320 750,260 900,300" />
-    <circle cx="0" cy="400" r="5" fill="#60a5fa"/><circle cx="150" cy="360" r="5" fill="#60a5fa"/>
-    <circle cx="300" cy="420" r="5" fill="#60a5fa"/><circle cx="450" cy="280" r="5" fill="#60a5fa"/>
-    <circle cx="600" cy="320" r="5" fill="#60a5fa"/><circle cx="750" cy="260" r="5" fill="#60a5fa"/>
-    <circle cx="900" cy="300" r="5" fill="#60a5fa"/>
-  </g>
-  <g transform="translate(80,520)" font-family="Arial,Helvetica,sans-serif" fill="#9ca3af" font-size="14">
-    <text x="0" y="0">Leads</text><text x="150" y="0">Quotes</text><text x="300" y="0">Approvals</text>
-    <text x="450" y="0">Bookings</text><text x="600" y="0">Jobs</text><text x="750" y="0">Invoices</text><text x="900" y="0">Won</text>
+<svg xmlns="http://www.w3.org/2000/svg" width="1400" height="800" viewBox="0 0 1400 800">
+  <rect width="100%" height="100%" fill="#0a1222"/>
+  <rect x="80" y="100" width="1240" height="560" rx="18" fill="#0f1b34" stroke="#1f2b44" stroke-width="2"/>
+  <text x="700" y="80" fill="#e5e7eb" font-family="Inter, Arial" font-size="20" text-anchor="middle">Illustrative Looker Studio KPIs</text>
+  <g transform="translate(120,160)" stroke="#60a5fa" stroke-width="3" fill="none">
+    <polyline points="0,360 150,300 300,340 450,220 600,280 750,200 900,240 1040,180" />
+    <g fill="#60a5fa" stroke="none">
+      <circle cx="0" cy="360" r="5"/><circle cx="150" cy="300" r="5"/>
+      <circle cx="300" cy="340" r="5"/><circle cx="450" cy="220" r="5"/>
+      <circle cx="600" cy="280" r="5"/><circle cx="750" cy="200" r="5"/>
+      <circle cx="900" cy="240" r="5"/><circle cx="1040" cy="180" r="5"/>
+    </g>
   </g>
 </svg>
