@@ -7,29 +7,27 @@
   <link rel="icon" href="images/hero-premium.svg">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="assets/style.css">
-  <style>
-    body{margin:0;background:linear-gradient(180deg,#0b0e17,#0e1422);color:#eaf0f7;font-family:Inter,system-ui}
-    .wrap{max-width:1100px;margin:0 auto;padding:0 20px}
-    nav{position:sticky;top:0;background:rgba(9,12,22,.7);backdrop-filter:blur(8px);border-bottom:1px solid #1b2740;z-index:10}
-    nav .inner{display:flex;justify-content:space-between;align-items:center;padding:12px 0}
-    a{color:#60a5fa;text-decoration:none} a:hover{text-decoration:underline}
-    .logo{font-weight:800}
-    header{padding:48px 0 10px}
-    h1{margin:0 0 10px;font-size:clamp(28px,4vw,44px)}
-    .lede{color:#a8b3c7;max-width:70ch}
-    .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px;margin:24px 0}
-    .card{background:linear-gradient(180deg,#111525,#0f1424);border:1px solid #1b2740;border-radius:16px;padding:18px}
-    .btn{display:inline-flex;gap:10px;align-items:center;padding:10px 14px;border-radius:10px;font-weight:700;background:linear-gradient(90deg,#6ee7f0,#60a5fa);color:#001018;border:0}
-    footer{padding:20px 0;color:#8ea0bd;display:flex;gap:12px;justify-content:space-between;flex-wrap:wrap}
-  </style>
 </head>
 <body>
-  <nav><div class="wrap inner"><div class="logo">Navneeth · Portfolio</div><div><a href="https://github.com/navneethramachandran14">GitHub</a></div></div></nav>
+  <nav>
+    <div class="wrap inner">
+      <div class="logo">Navneeth · Portfolio</div>
+      <div>
+        <a href="mailto:navneethramachandran@yahoo.com">Email</a> ·
+        <a href="https://www.linkedin.com/in/navneethramachandran/" target="_blank" rel="noreferrer">LinkedIn</a> ·
+        <a href="https://github.com/navneethramachandran14" target="_blank" rel="noreferrer">GitHub</a>
+      </div>
+    </div>
+  </nav>
+
   <div class="wrap">
-    <header>
+    <header class="hero">
       <h1>Data Engineering · Analytics · CRM Automations</h1>
-      <p class="lede">I build end-to-end systems: Azure data pipelines, GA4/GTM tracking & dashboards, and HubSpot + Make automations. Pick a track below.</p>
-      <div style="margin-top:14px"><a class="btn" href="tracks/crm/">Start with CRM & Automations</a></div>
+      <p class="lede">I build clean, scalable systems: Azure data pipelines, GA4/GTM tracking & Looker dashboards, and HubSpot + Make automations. Choose a track below.</p>
+      <div class="ctas">
+        <a class="btn" href="tracks/crm/">Start with CRM & Automations</a>
+        <a class="btn outline" href="hubspot-case-study.html">Flagship CRM Case Study</a>
+      </div>
     </header>
 
     <section class="grid">
@@ -39,17 +37,20 @@
       </a>
       <a class="card" href="tracks/data-engineering/">
         <h2>Data Engineering (Azure/Databricks)</h2>
-        <p>ADF + Databricks + Delta Lake projects, Star schema/medallion, DLT/Unity Catalog, Power BI.</p>
+        <p>ADF + Databricks + Delta Lake projects; Star schema/medallion; DLT/Unity Catalog; Power BI.</p>
       </a>
       <a class="card" href="tracks/analytics/">
         <h2>Analytics (GA4/GTM/Looker)</h2>
-        <p>Master GTM, multi-site GA4 streams, Looker Studio dashboards, attribution & SEO insights.</p>
+        <p>Master GTM, multi-site GA4 streams with <span class="kbd">site_id</span>, and polished Looker Studio dashboards.</p>
       </a>
     </section>
 
     <footer>
       <div>© <span id="y"></span> Navneeth Ramachandran</div>
-      <div><a href="mailto:you@example.com">you@example.com</a> · <a href="https://www.linkedin.com/in/YOUR-LINK">LinkedIn</a></div>
+      <div>
+        <a href="mailto:navneethramachandran@yahoo.com">navneethramachandran@yahoo.com</a> ·
+        <a href="https://www.linkedin.com/in/navneethramachandran/" target="_blank" rel="noreferrer">LinkedIn</a>
+      </div>
     </footer>
   </div>
   <script>document.getElementById('y').textContent=new Date().getFullYear()</script>
