@@ -4,14 +4,31 @@
   <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Analytics – GA4/GTM/Looker</title>
   <link rel="stylesheet" href="../../assets/style.css">
-  <style>body{margin:0;background:linear-gradient(180deg,#0b0e17,#0e1422);color:#eaf0f7;font-family:Inter,system-ui}</style>
 </head>
 <body>
+  <nav><div class="wrap inner"><div class="logo">Analytics</div><div><a href="../../">← Home</a></div></div></nav>
   <div class="wrap">
-    <p><a href="../../">← Home</a></p>
-    <h1>Analytics & Reporting</h1>
-    <p>GTM master container, GA4 property with site streams, Looker Studio dashboards.</p>
-    <p><a href="../../hubspot-case-study.html#solution">See dashboards in the case study →</a></p>
+    <header class="hero">
+      <h1>Analytics & Reporting</h1>
+      <p class="lede">Master GTM, GA4 property with multi-site streams (using <span class="kbd">site_id</span>), and polished Looker Studio dashboards for Website, SEO, and Attribution.</p>
+    </header>
+
+    <section class="grid">
+      <a class="card" href="../../hubspot-case-study.html#solution">
+        <h3>Multi-site GA4 + GTM</h3>
+        <p>Consistent event coverage, easy new-site onboarding.</p>
+      </a>
+      <a class="card" href="../../hubspot-case-study.html#solution">
+        <h3>Looker Studio Dashboards</h3>
+        <p>KPIs for traffic, SEO insights, and attribution paths.</p>
+      </a>
+    </section>
+
+    <footer>
+      <div>© <span id="y"></span> Navneeth Ramachandran</div>
+      <div><a href="mailto:navneethramachandran@yahoo.com">navneethramachandran@yahoo.com</a></div>
+    </footer>
   </div>
+  <script>document.getElementById('y').textContent=new Date().getFullYear()</script>
 </body>
 </html>
