@@ -6,27 +6,50 @@
   <meta name="description" content="From-scratch HubSpot CRM, Make.com automations, and multi-site GTM/GA4 analytics with Looker Studio dashboards."/>
   <link rel="icon" href="images/favicon.png"/>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/style.css">
+  <script defer src="assets/script.js"></script>
   <style>
-    :root{--bg:#0b0e17;--card:#111525;--muted:#a8b3c7;--text:#eaf0f7;--line:#1b2740;--accent:#6ee7f0;--blue:#60a5fa}
-    *{box-sizing:border-box} html,body{margin:0;background:linear-gradient(180deg,#0b0e17,#0e1422);color:var(--text);font-family:Inter,system-ui}
-    a{color:var(--blue)} .wrap{max-width:1100px;margin:0 auto;padding:0 20px}
-    header{padding:36px 0 8px} h1{margin:0 0 8px;font-size:clamp(26px,4vw,40px)}
-    .lede{color:var(--muted)} .tag{border:1px solid var(--line);border-radius:999px;padding:6px 10px;margin-right:6px;color:#c7d2e5;font-size:13px}
-    section{padding:24px 0;border-top:1px solid var(--line)} h2{margin:0 0 12px;font-size:22px}
-    .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px}
-    .card{background:linear-gradient(180deg,#111525,#0f1424);border:1px solid var(--line);border-radius:16px;padding:18px}
-    img{width:100%;height:auto;border:1px solid var(--line);border-radius:12px;display:block}
-    .btn{display:inline-flex;gap:10px;align-items:center;padding:10px 14px;border-radius:10px;font-weight:700;background:linear-gradient(90deg,var(--accent),var(--blue));color:#001018;border:0}
-    footer{padding:20px 0;color:#8ea0bd;font-size:14px;display:flex;flex-wrap:wrap;gap:12px;justify-content:space-between}
+    /* page-specific tiny styles */
+    .tags { display:flex; flex-wrap:wrap; gap:8px; margin-top:10px }
+    .tag { display:inline-block; padding:6px 10px; border-radius:999px; border:1px solid var(--line); color:var(--muted); font-size:13px }
   </style>
 </head>
 <body>
+  <!-- Consistent nav -->
+  <nav>
+    <div class="wrap nav-inner">
+      <div class="brand">Navneeth · Portfolio</div>
+      <div class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="tracks/crm/">CRM</a>
+        <a href="tracks/data-engineering/">Data Eng</a>
+        <a href="tracks/analytics/">Analytics</a>
+        <a href="https://www.linkedin.com/in/navneethramachandran/" target="_blank" rel="noreferrer">LinkedIn</a>
+        <a href="mailto:navneethramachandran@yahoo.com">Email</a>
+      </div>
+      <button class="menu-btn" aria-label="Menu">☰</button>
+    </div>
+    <div class="drawer wrap">
+      <a href="index.html">Home</a>
+      <a href="tracks/crm/">CRM</a>
+      <a href="tracks/data-engineering/">Data Eng</a>
+      <a href="tracks/analytics/">Analytics</a>
+      <a href="https://www.linkedin.com/in/navneethramachandran/" target="_blank" rel="noreferrer">LinkedIn</a>
+      <a href="mailto:navneethramachandran@yahoo.com">Email</a>
+    </div>
+  </nav>
+
   <div class="wrap">
-    <header>
-      <a href="index.html">← Back</a>
+    <header class="hero">
       <h1>End-to-End HubSpot CRM & Automations</h1>
       <p class="lede">Architected and implemented a production CRM & marketing automation ecosystem with <strong>HubSpot</strong>, <strong>Make.com</strong>, and a unified analytics layer (<strong>GTM</strong>, <strong>GA4</strong>, <strong>Looker Studio</strong>) for a multi-location services business in Sweden.</p>
-      <div style="margin-top:10px"><span class="tag">HubSpot</span><span class="tag">Make.com</span><span class="tag">GTM</span><span class="tag">GA4</span><span class="tag">Looker Studio</span></div>
+      <div class="ctas" style="margin-top:16px">
+        <a class="btn" href="tracks/crm/">See CRM track</a>
+        <a class="btn ghost" href="index.html">← Back to portfolio</a>
+      </div>
+      <div class="tags">
+        <span class="tag">HubSpot</span><span class="tag">Make.com</span><span class="tag">GTM</span><span class="tag">GA4</span><span class="tag">Looker Studio</span>
+      </div>
     </header>
 
     <section>
@@ -37,11 +60,11 @@
     <section>
       <h2>My Role</h2>
       <ul>
-        <li>Designed the end-to-end architecture (HubSpot ↔ Make ↔ Slack/Calendar/Sheets ↔ GTM/GA4 ↔ Looker Studio)</li>
-        <li>Implemented HubSpot objects, forms, property model, templates (incl. hidden <code>site_id</code>)</li>
-        <li>Built Make scenarios for new leads, quote approval → booking, ROT/Grön teknik, self-inspection, reminders and alerts</li>
-        <li>Set up a master GTM container, GA4 with one property & multiple streams, and Looker Studio dashboards</li>
-        <li>Produced handover docs and operational guidelines (e.g., calendar/booking field formatting)</li>
+        <li>Designed the end-to-end architecture (HubSpot ↔ Make ↔ Slack/Calendar/Sheets ↔ GTM/GA4 ↔ Looker Studio).</li>
+        <li>Implemented HubSpot objects, forms, property model, templates (incl. hidden <code>site_id</code>).</li>
+        <li>Built Make scenarios for new leads, quote approval → booking, ROT/Grön teknik, self-inspection, reminders and alerts.</li>
+        <li>Set up a master GTM container, GA4 with one property & multiple streams, and Looker Studio dashboards.</li>
+        <li>Produced handover docs and operational guidelines (e.g., calendar/booking field formatting).</li>
       </ul>
     </section>
 
@@ -91,18 +114,15 @@
       </ul>
     </section>
 
-    <section>
-      <a class="btn" href="index.html">← Back to portfolio</a>
-    </section>
-
     <footer>
-  <div>© <span id="y"></span> Navneeth Ramachandran</div>
-  <div>
-    <a href="mailto:navneethramachandran@yahoo.com">navneethramachandran@yahoo.com</a> ·
-    <a href="https://www.linkedin.com/in/navneethramachandran/" target="_blank" rel="noreferrer">LinkedIn</a>
+      <div>© <span id="y"></span> Navneeth Ramachandran</div>
+      <div>
+        <a href="mailto:navneethramachandran@yahoo.com">navneethramachandran@yahoo.com</a> ·
+        <a href="https://www.linkedin.com/in/navneethramachandran/" target="_blank" rel="noreferrer">LinkedIn</a>
+      </div>
+    </footer>
   </div>
-</footer>
-  </div>
+
   <script>document.getElementById('y').textContent=new Date().getFullYear()</script>
 </body>
 </html>
