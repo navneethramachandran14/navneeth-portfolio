@@ -4,17 +4,31 @@
   <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Data Engineering – Azure/Databricks</title>
   <link rel="stylesheet" href="../../assets/style.css">
-  <style>body{margin:0;background:linear-gradient(180deg,#0b0e17,#0e1422);color:#eaf0f7;font-family:Inter,system-ui}</style>
 </head>
 <body>
+  <nav><div class="wrap inner"><div class="logo">Data Engineering</div><div><a href="../../">← Home</a></div></div></nav>
   <div class="wrap">
-    <p><a href="../../">← Home</a></p>
-    <h1>Azure Data Engineering</h1>
-    <ul>
-      <li>ADF → Databricks (PySpark) → Delta Lake (star/medallion) → Power BI</li>
-      <li>Streaming with Spark Structured Streaming</li>
-    </ul>
-    <!-- Link your repos here -->
+    <header class="hero">
+      <h1>Azure Data Engineering</h1>
+      <p class="lede">ADF ingestion → Databricks (PySpark) transforms → Delta Lake (medallion & star) → Power BI. DLT/Unity Catalog where relevant.</p>
+    </header>
+
+    <section class="grid">
+      <a class="card" href="https://github.com/navneethramachandran14" target="_blank" rel="noreferrer">
+        <h3>Retail Sales & Inventory</h3>
+        <p>ETL, SCD, star schema on Delta; PBIX visualization.</p>
+      </a>
+      <a class="card" href="https://github.com/navneethramachandran14" target="_blank" rel="noreferrer">
+        <h3>Real-time Streaming</h3>
+        <p>Spark Structured Streaming to Delta; bronze/silver/gold.</p>
+      </a>
+    </section>
+
+    <footer>
+      <div>© <span id="y"></span> Navneeth Ramachandran</div>
+      <div><a href="mailto:navneethramachandran@yahoo.com">navneethramachandran@yahoo.com</a></div>
+    </footer>
   </div>
+  <script>document.getElementById('y').textContent=new Date().getFullYear()</script>
 </body>
 </html>
