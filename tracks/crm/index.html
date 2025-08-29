@@ -1,1 +1,57 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>CRM & Automations – HubSpot + Make</title>
+  <meta name="description" content="HubSpot CRM setup, pipelines, workflows, and Make.com automations.">
+  <link rel="icon" href="../../images/hero-premium.svg">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../../assets/style.css">
+  <style>
+    body{margin:0;background:linear-gradient(180deg,#0b0e17,#0e1422);color:#eaf0f7;font-family:Inter,system-ui}
+    .wrap{max-width:1100px;margin:0 auto;padding:0 20px}
+    nav{position:sticky;top:0;background:rgba(9,12,22,.7);backdrop-filter:blur(8px);border-bottom:1px solid #1b2740}
+    nav .inner{display:flex;justify-content:space-between;align-items:center;padding:12px 0}
+    a{color:#60a5fa;text-decoration:none} a:hover{text-decoration:underline}
+    .logo{font-weight:800}
+    header{padding:36px 0 8px}
+    h1{margin:0 0 8px;font-size:clamp(26px,4vw,40px)}
+    .lede{color:#a8b3c7}
+    .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px;margin:20px 0}
+    .card{background:linear-gradient(180deg,#111525,#0f1424);border:1px solid #1b2740;border-radius:16px;padding:18px}
+    .btn{display:inline-flex;gap:10px;align-items:center;padding:10px 14px;border-radius:10px;font-weight:700;background:linear-gradient(90deg,#6ee7f0,#60a5fa);color:#001018;border:0}
+    footer{padding:20px 0;color:#8ea0bd;display:flex;gap:12px;justify-content:space-between;flex-wrap:wrap}
+  </style>
+</head>
+<body>
+  <nav><div class="wrap inner"><div class="logo">CRM & Automations</div><div><a href="../../">← Home</a></div></div></nav>
+  <div class="wrap">
+    <header>
+      <h1>HubSpot CRM + Make Automations</h1>
+      <p class="lede">End-to-end build: pipelines, forms, quote approval → booking, ROT/Grön teknik, Slack alerts, and multi-site tracking with GTM/GA4. Documentation and training included.</p>
+    </header>
+
+    <section>
+      <h2>Projects</h2>
+      <div class="grid">
+        <a class="card" href="../../hubspot-case-study.html">
+          <h3>Case Study: Multi-site CRM & Automation Ecosystem</h3>
+          <p>From-scratch HubSpot, Make, GTM/GA4, Looker. Screenshots & sanitized docs.</p>
+        </a>
+        <!-- Add more CRM projects here as new pages later -->
+      </div>
+    </section>
+
+    <section>
+      <a class="btn" href="../../hubspot-case-study.html">Open flagship case study</a>
+    </section>
+
+    <footer>
+      <div>© <span id="y"></span> Navneeth Ramachandran</div>
+      <div><a href="mailto:you@example.com">you@example.com</a> · <a href="https://www.linkedin.com/in/YOUR-LINK">LinkedIn</a></div>
+    </footer>
+  </div>
+  <script>document.getElementById('y').textContent=new Date().getFullYear()</script>
+</body>
+</html>
 
