@@ -1,204 +1,57 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Navneeth – HubSpot & Automation Expert</title>
-  <meta name="description" content="HubSpot CRM, automations (Make/Zapier), GA4/GTM tracking, and Looker Studio dashboards to turn leads into loyal customers.">
-  <link rel="icon" href="favicon.svg" type="image/svg+xml">
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Poppins:wght@600;700&display=swap" rel="stylesheet">
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Navneeth – Portfolio</title>
+  <meta name="description" content="Multi-track portfolio: CRM/Automations (HubSpot + Make), Data Engineering (Azure/Databricks), Analytics (GA4/GTM/Looker).">
+  <link rel="icon" href="images/hero-premium.svg">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="assets/style.css">
-  <script defer src="https://unpkg.com/feather-icons"></script>
-
-  <!-- Google tag (gtag.js) - Replace G-XXXXXXXXXX with your GA4 ID -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'G-XXXXXXXXXX'); // TODO: replace with your GA4 ID
-  </script>
+  <style>
+    body{margin:0;background:linear-gradient(180deg,#0b0e17,#0e1422);color:#eaf0f7;font-family:Inter,system-ui}
+    .wrap{max-width:1100px;margin:0 auto;padding:0 20px}
+    nav{position:sticky;top:0;background:rgba(9,12,22,.7);backdrop-filter:blur(8px);border-bottom:1px solid #1b2740;z-index:10}
+    nav .inner{display:flex;justify-content:space-between;align-items:center;padding:12px 0}
+    a{color:#60a5fa;text-decoration:none} a:hover{text-decoration:underline}
+    .logo{font-weight:800}
+    header{padding:48px 0 10px}
+    h1{margin:0 0 10px;font-size:clamp(28px,4vw,44px)}
+    .lede{color:#a8b3c7;max-width:70ch}
+    .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px;margin:24px 0}
+    .card{background:linear-gradient(180deg,#111525,#0f1424);border:1px solid #1b2740;border-radius:16px;padding:18px}
+    .btn{display:inline-flex;gap:10px;align-items:center;padding:10px 14px;border-radius:10px;font-weight:700;background:linear-gradient(90deg,#6ee7f0,#60a5fa);color:#001018;border:0}
+    footer{padding:20px 0;color:#8ea0bd;display:flex;gap:12px;justify-content:space-between;flex-wrap:wrap}
+  </style>
 </head>
 <body>
-  <nav>
-    <div class="container nav-inner">
-      <div class="brand">
-        <img src="favicon.svg" alt="NR">
-        <span>Navneeth Ramachandran</span>
-      </div>
-      <div class="nav-links">
-        <a href="#services">Services</a>
-        <a href="#project">Case Study</a>
-        <a href="#about">About</a>
-        <a href="#contact">Contact</a>
-      </div>
-    </div>
-  </nav>
+  <nav><div class="wrap inner"><div class="logo">Navneeth · Portfolio</div><div><a href="https://github.com/navneethramachandran14">GitHub</a></div></div></nav>
+  <div class="wrap">
+    <header>
+      <h1>Data Engineering · Analytics · CRM Automations</h1>
+      <p class="lede">I build end-to-end systems: Azure data pipelines, GA4/GTM tracking & dashboards, and HubSpot + Make automations. Pick a track below.</p>
+      <div style="margin-top:14px"><a class="btn" href="tracks/crm/">Start with CRM & Automations</a></div>
+    </header>
 
-  <header class="container hero">
-    <div>
-      <span class="kicker">HubSpot • Automations • Analytics</span>
-      <h1>HubSpot & Automation Expert – Turning Leads into Loyal Customers</h1>
-      <p class="lead">I design and implement CRM, analytics, and marketing automation systems that save time, improve tracking, and boost ROI.</p>
-      <div style="display:flex;gap:12px;flex-wrap:wrap">
-        <a href="#contact" class="btn btn-primary" data-cta="work-with-me">Work With Me</a>
-        <a href="#project" class="btn" data-cta="see-case-study"><i data-feather="play" class="icon"></i>See Case Study</a>
-      </div>
-      <div class="badges">
-        <span class="badge">HubSpot</span>
-        <span class="badge">Make.com</span>
-        <span class="badge">GA4</span>
-        <span class="badge">GTM</span>
-        <span class="badge">Looker Studio</span>
-      </div>
-      <div class="logo-strip" style="margin-top:18px">
-        <div class="logo">HubSpot</div>
-        <div class="logo">Make.com</div>
-        <div class="logo">Google Analytics 4</div>
-        <div class="logo">Google Tag Manager</div>
-        <div class="logo">Looker Studio</div>
-      </div>
-    </div>
-    <div class="card">
-      <img src="images/hero-premium.svg" alt="Premium hero">
-    </div>
-  </header>
+    <section class="grid">
+      <a class="card" href="tracks/crm/">
+        <h2>CRM & Automations (HubSpot + Make)</h2>
+        <p>From-scratch CRM architecture, pipelines, workflows, and Make scenarios. Case studies + screenshots.</p>
+      </a>
+      <a class="card" href="tracks/data-engineering/">
+        <h2>Data Engineering (Azure/Databricks)</h2>
+        <p>ADF + Databricks + Delta Lake projects, Star schema/medallion, DLT/Unity Catalog, Power BI.</p>
+      </a>
+      <a class="card" href="tracks/analytics/">
+        <h2>Analytics (GA4/GTM/Looker)</h2>
+        <p>Master GTM, multi-site GA4 streams, Looker Studio dashboards, attribution & SEO insights.</p>
+      </a>
+    </section>
 
-  <section id="services" class="section container">
-    <span class="kicker">What I do</span>
-    <h2>Services</h2>
-    <p class="muted">Implementation from strategy → build → handover. Clear documentation and training included.</p>
-    <div class="grid grid-3">
-      <div class="card service-card">
-        <h3><i data-feather="settings" class="icon"></i> HubSpot CRM Setup & Optimization</h3>
-        <ul>
-          <li>Pipelines & properties tailored to your sales process</li>
-          <li>Automated workflows, lead scoring, and email templates</li>
-          <li>Quote approvals, booking flows, and bilingual comms</li>
-        </ul>
-      </div>
-      <div class="card service-card">
-        <h3><i data-feather="zap" class="icon"></i> Marketing & Sales Automations</h3>
-        <ul>
-          <li>Make.com / Zapier integrations across your stack</li>
-          <li>Slack alerts, dynamic forms, self-inspection & ROT flows</li>
-          <li>Error-proof, modular workflows with fallbacks</li>
-        </ul>
-      </div>
-      <div class="card service-card">
-        <h3><i data-feather="bar-chart-2" class="icon"></i> Analytics, Tracking & Dashboards</h3>
-        <ul>
-          <li>GA4 + GTM event tracking (multi-site, master container)</li>
-          <li>Offline conversion tracking & CRM-analytics blending</li>
-          <li>Looker Studio KPI dashboards & automated reports</li>
-        </ul>
-      </div>
-    </div>
-  </section>
-
-  <section id="project" class="section container project">
-    <span class="kicker">Featured case</span>
-    <h2>Elektriker Solna – Centralized CRM & Analytics</h2>
-    <p class="muted">A Swedish electrical services network needed a centralized, scalable system for leads, quotes, bookings, and KPIs across multiple local sites.</p>
-    <div class="grid grid-2" style="margin-top:16px">
-      <img src="images/project-hubspot-pipeline.svg" alt="HubSpot pipeline">
-      <img src="images/project-looker-dashboard.svg" alt="Looker Studio dashboard">
-    </div>
-    <div class="card" style="margin-top:16px">
-      <h3>Solution</h3>
-      <ul>
-        <li>HubSpot pipeline with automated stages, email templates, and approval flows</li>
-        <li>GA4 + GTM event tracking across forms with a master GTM container</li>
-        <li>Looker Studio dashboards for leads, quotes, bookings, and revenue</li>
-        <li>Modular Make.com automations and Slack alerts</li>
-        <li>Architecture designed for rollout to multiple local websites</li>
-      </ul>
-      <h3>Results</h3>
-      <ul>
-        <li>Faster lead response and cleaner handoffs</li>
-        <li>Accurate tracking and reporting across the funnel</li>
-        <li>Scalable foundation for growth (multi-site ready)</li>
-      </ul>
-    </div>
-  </section>
-
-  <section class="section container">
-    <span class="kicker">Proof</span>
-    <h2>What clients say</h2>
-    <div class="testimonials">
-      <div class="card">
-        <p class="quote">“Navneeth transformed our CRM into a fully automated system that keeps our sales team on track and customers engaged.”</p>
-        <p class="muted">— Ampy AB</p>
-      </div>
-      <div class="card">
-        <p class="quote">“Clean setup, clear documentation, and dashboards that finally make sense to the business.”</p>
-        <p class="muted">— Project Stakeholder</p>
-      </div>
-    </div>
-  </section>
-
-  <section id="about" class="section container about">
-    <div class="card">
-      <h2>About Me</h2>
-      <p>Hi, I’m Navneeth — a data-driven automation consultant with 6+ years of experience in CRM, analytics, and workflow automation. I’ve worked with global brands like Selfridges and recently led the end-to-end CRM and analytics setup for a Swedish electrical services network.</p>
-      <p>Focus areas: HubSpot, Make.com, GA4, GTM, Looker Studio, Databricks. I build scalable systems that make sales teams faster, marketing smarter, and customers happier.</p>
-      <div class="badges">
-        <span class="badge">6+ years experience</span>
-        <span class="badge">Consulting & Delivery</span>
-        <span class="badge">Documentation & Training</span>
-      </div>
-    </div>
-    <div class="card">
-      <h3>Capabilities</h3>
-      <ul>
-        <li>HubSpot: pipelines, properties, workflows, email templates</li>
-        <li>Automations: Make.com, Zapier, Slack, Google Workspace</li>
-        <li>Analytics: GA4, GTM, offline conversions, cross-site tracking</li>
-        <li>Dashboards: Looker Studio, KPI definitions, automated reporting</li>
-      </ul>
-    </div>
-  </section>
-
-  <section id="contact" class="section container">
-    <span class="kicker">Start a project</span>
-    <h2>Contact</h2>
-    <div class="grid grid-2">
-      <div class="card">
-        <p>Tell me a bit about your goals and current setup. I’ll respond within 24 hours.</p>
-        <!-- Replace with your HubSpot form embed -->
-        <p class="muted">HubSpot Form Embed placeholder:</p>
-        <pre style="white-space:pre-wrap;background:#0a1326;padding:12px;border-radius:12px;border:1px solid rgba(148,163,184,.25)">
-&lt;!-- HubSpot Form --&gt;
-&lt;script charset="utf-8" type="text/javascript" src="//js.hsforms.net/forms/embed/v2.js"&gt;&lt;/script&gt;
-&lt;script&gt;
-  hbspt.forms.create({
-    region: "eu1",
-    portalId: "YOUR_PORTAL_ID",
-    formId: "YOUR_FORM_ID",
-    target: "#hs-form"
-  });
-&lt;/script&gt;
-        </pre>
-        <div id="hs-form"></div>
-      </div>
-      <div class="card">
-        <h3>Direct Contact</h3>
-        <p><i data-feather="mail" class="icon"></i> <a href="mailto:you@example.com">you@example.com</a></p>
-        <p><i data-feather="linkedin" class="icon"></i> <a href="https://www.linkedin.com/in/your-linkedin" target="_blank" rel="noreferrer">LinkedIn</a></p>
-        <p><i data-feather="github" class="icon"></i> <a href="https://github.com/your-github" target="_blank" rel="noreferrer">GitHub</a></p>
-        <a href="#services" class="btn" data-cta="back-to-services"><i data-feather="arrow-up-right" class="icon"></i> Explore Services</a>
-      </div>
-    </div>
-  </section>
-
-  <footer class="footer container">
-    <div style="display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap">
-      <span>© <span id="y"></span> Navneeth Ramachandran</span>
-      <span>Built with GitHub Pages · Analytics via GA4</span>
-    </div>
-  </footer>
-
-  <script src="assets/script.js"></script>
-  <script>document.getElementById('y').textContent = new Date().getFullYear()</script>
+    <footer>
+      <div>© <span id="y"></span> Navneeth Ramachandran</div>
+      <div><a href="mailto:you@example.com">you@example.com</a> · <a href="https://www.linkedin.com/in/YOUR-LINK">LinkedIn</a></div>
+    </footer>
+  </div>
+  <script>document.getElementById('y').textContent=new Date().getFullYear()</script>
 </body>
 </html>
