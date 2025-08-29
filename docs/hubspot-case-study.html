@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/><meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>Case Study – End-to-End HubSpot CRM & Automations</title>
+  <meta name="description" content="From-scratch HubSpot CRM, Make.com automations, and multi-site GTM/GA4 analytics with Looker Studio dashboards."/>
+  <link rel="icon" href="images/favicon.png"/>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+  <style>
+    :root{--bg:#0b0e17;--card:#111525;--muted:#a8b3c7;--text:#eaf0f7;--line:#1b2740;--accent:#6ee7f0;--blue:#60a5fa}
+    *{box-sizing:border-box} html,body{margin:0;background:linear-gradient(180deg,#0b0e17,#0e1422);color:var(--text);font-family:Inter,system-ui}
+    a{color:var(--blue)} .wrap{max-width:1100px;margin:0 auto;padding:0 20px}
+    header{padding:36px 0 8px} h1{margin:0 0 8px;font-size:clamp(26px,4vw,40px)}
+    .lede{color:var(--muted)} .tag{border:1px solid var(--line);border-radius:999px;padding:6px 10px;margin-right:6px;color:#c7d2e5;font-size:13px}
+    section{padding:24px 0;border-top:1px solid var(--line)} h2{margin:0 0 12px;font-size:22px}
+    .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px}
+    .card{background:linear-gradient(180deg,#111525,#0f1424);border:1px solid var(--line);border-radius:16px;padding:18px}
+    img{width:100%;height:auto;border:1px solid var(--line);border-radius:12px;display:block}
+    .btn{display:inline-flex;gap:10px;align-items:center;padding:10px 14px;border-radius:10px;font-weight:700;background:linear-gradient(90deg,var(--accent),var(--blue));color:#001018;border:0}
+    footer{padding:20px 0;color:#8ea0bd;font-size:14px;display:flex;flex-wrap:wrap;gap:12px;justify-content:space-between}
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <a href="index.html">← Back</a>
+      <h1>End-to-End HubSpot CRM & Automations</h1>
+      <p class="lede">Architected and implemented a production CRM & marketing automation ecosystem with <strong>HubSpot</strong>, <strong>Make.com</strong>, and a unified analytics layer (<strong>GTM</strong>, <strong>GA4</strong>, <strong>Looker Studio</strong>) for a multi-location services business in Sweden.</p>
+      <div style="margin-top:10px"><span class="tag">HubSpot</span><span class="tag">Make.com</span><span class="tag">GTM</span><span class="tag">GA4</span><span class="tag">Looker Studio</span></div>
+    </header>
+
+    <section>
+      <h2>Context & Problem</h2>
+      <p>There was no central CRM, lead handling was manual (forms, emails, phone calls), and analytics were siloed by site. The business needed a <strong>scalable foundation</strong> that unified capture → CRM → automation → reporting across present and future local websites.</p>
+    </section>
+
+    <section>
+      <h2>My Role</h2>
+      <ul>
+        <li>Designed the end-to-end architecture (HubSpot ↔ Make ↔ Slack/Calendar/Sheets ↔ GTM/GA4 ↔ Looker Studio)</li>
+        <li>Implemented HubSpot objects, forms, property model, templates (incl. hidden <code>site_id</code>)</li>
+        <li>Built Make scenarios for new leads, quote approval → booking, ROT/Grön teknik, self-inspection, reminders and alerts</li>
+        <li>Set up a master GTM container, GA4 with one property & multiple streams, and Looker Studio dashboards</li>
+        <li>Produced handover docs and operational guidelines (e.g., calendar/booking field formatting)</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>Solution Overview</h2>
+      <div class="grid">
+        <div class="card">
+          <h3>HubSpot CRM</h3>
+          <p>Custom pipeline stages (Lead → Quote → Booking → ROT/Grön teknik → Invoicing → Closed). Forms include Quote Approval, ROT, Egenkontroll, and Call Request. Hidden fields carry <code>site_id</code> for multi-site attribution.</p>
+          <img src="images/hubspot-pipeline.png" alt="HubSpot pipeline (sanitized)">
+        </div>
+        <div class="card">
+          <h3>Make.com Automations</h3>
+          <p>Scenarios for New Lead (Privat/Batteri/Laddbox & Företag/BRF), Slack alerts, Quote → Booking with technician calendar invites, ROT & Grön teknik flows, Egenkontroll follow-ups and thank-you emails. Google Sheets/Data Store used where appropriate.</p>
+          <img src="images/make-scenario.png" alt="Make.com scenario (sanitized)">
+        </div>
+        <div class="card">
+          <h3>Analytics (GTM + GA4 + Looker Studio)</h3>
+          <p>Single GTM master container across sites with event coverage: <code>form_submit</code>, <code>phone_click</code>, <code>email_click</code>, and engagement. GA4 uses one property with multiple streams; <code>site_id</code> enables site-level filtering. Looker Studio dashboards for Website Performance, SEO, and Attribution.</p>
+          <img src="images/looker-dashboard.png" alt="Looker Studio dashboard (sanitized)">
+        </div>
+        <div class="card">
+          <h3>Operational Standards</h3>
+          <p>Guidelines for consistent calendar invite formatting, and a documented 6-step flow to onboard new sites (create GA4 stream, update GTM lookups, publish, install GTM, test in DebugView, confirm dashboards).</p>
+          <img src="images/booking-format.png" alt="Booking field formatting (sanitized)">
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <h2>Impact</h2>
+      <div class="grid">
+        <div class="card"><strong>Manual Work ↓</strong><p>~80% reduction in manual lead handling via automation.</p></div>
+        <div class="card"><strong>Time Saved</strong><p>50+ hours/month across sales & admin.</p></div>
+        <div class="card"><strong>Scalability</strong><p>New sites can be onboarded in &lt; 1 hour.</p></div>
+        <div class="card"><strong>Visibility</strong><p>Real-time dashboards for conversions, SEO & growth.</p></div>
+      </div>
+    </section>
+
+    <section>
+      <h2>Docs (sanitized)</h2>
+      <ul>
+        <li><a href="docs/architecture-overview.pdf">Architecture overview</a></li>
+        <li><a href="docs/analytics-gtm-ga4-looker.pdf">Analytics setup</a></li>
+        <li><a href="docs/make-automations.pdf">Automations catalog</a></li>
+        <li><a href="docs/booking-field-formatting.pdf">Booking field formatting</a></li>
+      </ul>
+    </section>
+
+    <section>
+      <a class="btn" href="index.html">← Back to portfolio</a>
+    </section>
+
+    <footer>
+      <div>© <span id="y"></span> Navneeth Ramachandran</div>
+      <div><a href="mailto:you@example.com">you@example.com</a> · <a href="https://www.linkedin.com/in/YOUR-LINK" target="_blank" rel="noreferrer">LinkedIn</a></div>
+    </footer>
+  </div>
+  <script>document.getElementById('y').textContent=new Date().getFullYear()</script>
+</body>
+</html>
