@@ -3,45 +3,56 @@
 <head>
   <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Navneeth – Portfolio</title>
-  <meta name="description" content="Multi-track portfolio: CRM/Automations (HubSpot + Make), Data Engineering (Azure/Databricks), Analytics (GA4/GTM/Looker).">
+  <meta name="description" content="Premium, responsive portfolio: CRM/Automations (HubSpot + Make), Data Engineering (Azure/Databricks), Analytics (GA4/GTM/Looker).">
   <link rel="icon" href="images/hero-premium.svg">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="assets/style.css">
+  <script defer src="assets/script.js"></script>
 </head>
 <body>
   <nav>
-    <div class="wrap inner">
-      <div class="logo">Navneeth · Portfolio</div>
-      <div>
-        <a href="mailto:navneethramachandran@yahoo.com">Email</a> ·
-        <a href="https://www.linkedin.com/in/navneethramachandran/" target="_blank" rel="noreferrer">LinkedIn</a> ·
-        <a href="https://github.com/navneethramachandran14" target="_blank" rel="noreferrer">GitHub</a>
+    <div class="wrap nav-inner">
+      <div class="brand">Navneeth · Portfolio</div>
+      <div class="nav-links">
+        <a href="tracks/crm/">CRM</a>
+        <a href="tracks/data-engineering/">Data Eng</a>
+        <a href="tracks/analytics/">Analytics</a>
+        <a href="https://www.linkedin.com/in/navneethramachandran/" target="_blank" rel="noreferrer">LinkedIn</a>
+        <a href="mailto:navneethramachandran@yahoo.com">Email</a>
       </div>
+      <button class="menu-btn" aria-label="Menu">☰</button>
+    </div>
+    <div class="drawer wrap">
+      <a href="tracks/crm/">CRM</a>
+      <a href="tracks/data-engineering/">Data Eng</a>
+      <a href="tracks/analytics/">Analytics</a>
+      <a href="https://www.linkedin.com/in/navneethramachandran/" target="_blank" rel="noreferrer">LinkedIn</a>
+      <a href="mailto:navneethramachandran@yahoo.com">Email</a>
     </div>
   </nav>
 
   <div class="wrap">
     <header class="hero">
       <h1>Data Engineering · Analytics · CRM Automations</h1>
-      <p class="lede">I build clean, scalable systems: Azure data pipelines, GA4/GTM tracking & Looker dashboards, and HubSpot + Make automations. Choose a track below.</p>
+      <p class="lede">I design reliable, scalable systems: Azure data pipelines, GA4/GTM + Looker dashboards, and HubSpot + Make automations. Choose a track below.</p>
       <div class="ctas">
         <a class="btn" href="tracks/crm/">Start with CRM & Automations</a>
-        <a class="btn outline" href="hubspot-case-study.html">Flagship CRM Case Study</a>
+        <a class="btn ghost" href="hubspot-case-study.html">Flagship CRM Case Study</a>
       </div>
     </header>
 
     <section class="grid">
       <a class="card" href="tracks/crm/">
         <h2>CRM & Automations (HubSpot + Make)</h2>
-        <p>From-scratch CRM architecture, pipelines, workflows, and Make scenarios. Case studies + screenshots.</p>
+        <p>From-scratch CRM architecture, pipelines, workflows, and Make scenarios. Case study + screenshots.</p>
       </a>
       <a class="card" href="tracks/data-engineering/">
         <h2>Data Engineering (Azure/Databricks)</h2>
-        <p>ADF + Databricks + Delta Lake projects; Star schema/medallion; DLT/Unity Catalog; Power BI.</p>
+        <p>ADF → Databricks (PySpark) → Delta Lake (medallion & star) → Power BI. DLT/Unity Catalog where relevant.</p>
       </a>
       <a class="card" href="tracks/analytics/">
         <h2>Analytics (GA4/GTM/Looker)</h2>
-        <p>Master GTM, multi-site GA4 streams with <span class="kbd">site_id</span>, and polished Looker Studio dashboards.</p>
+        <p>Master GTM, multi-site GA4 streams with <span class="kbd">site_id</span>, and polished Looker dashboards.</p>
       </a>
     </section>
 
