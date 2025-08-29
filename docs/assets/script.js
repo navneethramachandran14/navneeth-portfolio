@@ -1,19 +1,14 @@
-
-document.addEventListener('DOMContentLoaded', () => {
-  if (window.feather) feather.replace();
-
-  // GA4 click tracking
-  const track = (name, params={}) => { try { gtag && gtag('event', name, params); } catch(e){} };
-
-  document.querySelectorAll('[data-cta]').forEach(el => {
-    el.addEventListener('click', () => track('cta_click', { id: el.dataset.cta }));
-  });
-
-  // Smooth scroll for anchor links
-  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', function (e) {
-      const id = this.getAttribute('href');
-      if (id.length > 1) { e.preventDefault(); document.querySelector(id).scrollIntoView({ behavior: 'smooth' }); }
-    });
-  });
+// Mobile drawer toggle + subtle header shadow
+const btn = document.querySelector('.menu-btn');
+const drawer = document.querySelector('.drawer');
+if (btn && drawer){
+  btn.addEventListener('click', ()=>drawer.classList.toggle('open'));
+}
+const nav = document.querySelector('nav');
+let last = 0;
+window.addEventListener('scroll', ()=>{
+  const y = window.scrollY || 0;
+  if(!nav) return;
+  nav.style.boxShadow = y > 8 ? '0 6px 24px rgba(2,6,23,.08)' : 'none';
+  last = y;
 });
