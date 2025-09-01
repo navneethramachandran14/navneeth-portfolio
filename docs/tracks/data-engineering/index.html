@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Data Engineering – IBM Experience</title>
+  <link rel="stylesheet" href="/navneeth-portfolio/assets/style.css">
+  <script defer src="/navneeth-portfolio/assets/script.js"></script>
+</head>
+<body>
+  <nav>
+    <div class="wrap nav-inner">
+      <div class="brand">Data Engineering</div>
+      <div class="nav-links">
+        <a href="/navneeth-portfolio/">Home</a>
+        <a href="/navneeth-portfolio/tracks/crm/">CRM</a>
+        <a href="/navneeth-portfolio/tracks/analytics/">Analytics</a>
+      </div>
+      <button class="menu-btn" aria-label="Menu">☰</button>
+    </div>
+    <div class="drawer wrap">
+      <a href="/navneeth-portfolio/">Home</a>
+      <a href="/navneeth-portfolio/tracks/crm/">CRM</a>
+      <a href="/navneeth-portfolio/tracks/analytics/">Analytics</a>
+    </div>
+  </nav>
+
+  <div class="wrap">
+    <header class="hero">
+      <h1>IBM · Selfridges — Azure + Databricks</h1>
+      <p class="lede">Enterprise data platform using ADF, Databricks (PySpark/SQL), Delta Lake, Unity Catalog, and Power BI.</p>
+      <div class="ctas">
+        <a class="btn" href="/navneeth-portfolio/projects/retail-sales-inventory.html">Open the end-to-end case study</a>
+      </div>
+    </header>
+
+    <section class="grid">
+      <a class="card" href="/navneeth-portfolio/projects/retail-sales-inventory.html#architecture">
+        <h3>Architecture</h3><p>ADF ingestion → Databricks transforms → Delta Lake → Power BI.</p>
+      </a>
+      <a class="card" href="/navneeth-portfolio/projects/retail-sales-inventory.html#model">
+        <h3>Data Model</h3><p>Facts: Sales & Inventory; Dims: Product, Store, Calendar, Channel, Customer.</p>
+      </a>
+      <a class="card" href="/navneeth-portfolio/projects/retail-sales-inventory.html#pipeline">
+        <h3>Pipelines</h3><p>CDC, Auto Loader, DLT expectations, SCD2 merges, orchestration.</p>
+      </a>
+      <a class="card" href="/navneeth-portfolio/projects/retail-sales-inventory.html#outcomes">
+        <h3>Outcomes</h3><p>Stock cover, sell-through, OOS alerts, promo uplift.</p>
+      </a>
+    </section>
+
+    <footer>
+      <div>© <span id="y"></span> Navneeth Ramachandran</div>
+      <div><a href="mailto:navneethramachandran@yahoo.com">navneethramachandran@yahoo.com</a></div>
+    </footer>
+  </div>
+
+  <script>document.getElementById('y').textContent=new Date().getFullYear()</script>
+  <style>.drawer{display:none!important}.drawer.open{display:block!important}.card{display:block}</style>
+</body>
+</html>
