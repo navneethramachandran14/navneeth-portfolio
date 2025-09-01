@@ -46,46 +46,58 @@
     </header>
 
     <section>
-      <h2>Context & Problem</h2>
-      <p>There was no central CRM…</p>
-    </section>
+  <h2>Context & Problem</h2>
+  <p>Leads arrived through several local websites and phone/email, but there was no central CRM. Quotations and bookings were handled manually in inboxes, ROT/Grön teknik admin was ad-hoc, and analytics were split by site. The goal was a <strong>single, scalable system</strong> covering capture → pipeline → automation → reporting, with the ability to onboard new local sites quickly.</p>
+</section>
 
-    <section>
-      <h2>My Role</h2>
-      <ul>
-        <li>Designed the end-to-end architecture (HubSpot ↔ Make ↔ Slack/Calendar/Sheets ↔ GTM/GA4 ↔ Looker Studio).</li>
-        <li>Implemented HubSpot objects, forms, property model, templates (incl. hidden <code>site_id</code>).</li>
-        <li>Built Make scenarios for new leads, quote approval → booking, ROT/Grön teknik, self-inspection, reminders and alerts.</li>
-        <li>Set up a master GTM container, GA4 with one property & multiple streams, and Looker Studio dashboards.</li>
-        <li>Produced handover docs and operational guidelines (e.g., calendar/booking field formatting).</li>
-      </ul>
-    </section>
+<section>
+  <h2>My Role</h2>
+  <ul>
+    <li>Designed the end-to-end architecture (HubSpot ↔ Make ↔ Slack/Calendar/Sheets ↔ GTM/GA4 ↔ Looker Studio).</li>
+    <li>Built the HubSpot data model and pipelines: Lead → Quote → Booking → ROT/Grön teknik → Invoicing → Closed.</li>
+    <li>Created forms/templates (Quote Approval, ROT, Egenkontroll, Call Request) with hidden <code>site_id</code> for multi-site attribution.</li>
+    <li>Developed Make scenarios for new leads (Privat/Batteri/Laddbox and Företag/BRF), Quote→Booking with calendar invites, ROT & Grön teknik, Egenkontroll follow-ups, Slack alerts, and reminders.</li>
+    <li>Set up a master GTM container and a single GA4 property with multiple data streams; Looker dashboards for Website, SEO, and Attribution.</li>
+    <li>Wrote handover docs and operational standards (e.g., booking field formatting, new-site onboarding checklist).</li>
+  </ul>
+</section>
 
-    <section>
-      <h2>Solution Overview</h2>
-      <div class="grid">
-        <div class="card">
-          <h3>HubSpot CRM</h3>
-          <p>Custom pipeline stages…</p>
-          <img src="/navneeth-portfolio/images/hubspot-pipeline.png" alt="HubSpot pipeline (sanitized)">
-        </div>
-        <div class="card">
-          <h3>Make.com Automations</h3>
-          <p>Scenarios for New Lead…</p>
-          <img src="/navneeth-portfolio/images/make-scenario.png" alt="Make.com scenario (sanitized)">
-        </div>
-        <div class="card">
-          <h3>Analytics (GTM + GA4 + Looker Studio)</h3>
-          <p>Single GTM master container…</p>
-          <img src="/navneeth-portfolio/images/looker-website-performance.png" alt="Looker Studio dashboard (sanitized)">
-        </div>
-        <div class="card">
-          <h3>Operational Standards</h3>
-          <p>Guidelines for consistent calendar invite formatting…</p>
-          <img src="/navneeth-portfolio/images/booking-format.png" alt="Booking field formatting (sanitized)">
-        </div>
-      </div>
-    </section>
+<section>
+  <h2>Solution Overview</h2>
+  <div class="grid">
+    <div class="card">
+      <h3>HubSpot CRM</h3>
+      <p>Custom objects/properties, standardized lifecycle and pipeline stages, and form templates with <code>site_id</code> to tag the source site automatically. Sales can move deals from Quote to Booking with a single action.</p>
+      <img src="/navneeth-portfolio/images/hubspot-pipeline.png" alt="HubSpot pipeline (sanitized)">
+    </div>
+    <div class="card">
+      <h3>Make.com Automations</h3>
+      <p>Scenarios for new lead intake, quote approval → booking (technician invite + Slack alerts), ROT/Grön teknik administration, Egenkontroll emails, and periodic nudges. Google Sheets/Data Store for light data persistence where needed.</p>
+      <img src="/navneeth-portfolio/images/make-scenario.png" alt="Make.com scenario (sanitized)">
+    </div>
+    <div class="card">
+      <h3>Analytics (GTM + GA4 + Looker)</h3>
+      <p>One master GTM container across sites with consistent events (<code>form_submit</code>, <code>phone_click</code>, <code>email_click</code>, engagement). GA4 uses one property with multiple streams; <code>site_id</code> enables site-level filters in dashboards.</p>
+      <img src="/navneeth-portfolio/images/looker-website-performance.png" alt="Looker Studio dashboard (sanitized)">
+    </div>
+    <div class="card">
+      <h3>Operational Standards</h3>
+      <p>Booking field formatting for clean calendar invites; 6-step new-site onboarding: create GA4 stream → update GTM lookups → publish → install GTM → test in DebugView → confirm dashboards.</p>
+      <img src="/navneeth-portfolio/images/booking-format.png" alt="Booking field formatting (sanitized)">
+    </div>
+  </div>
+</section>
+
+<section>
+  <h2>Impact</h2>
+  <div class="grid">
+    <div class="card"><strong>Manual work ↓</strong><p>~80% less manual handling of leads via automated flows.</p></div>
+    <div class="card"><strong>Time saved</strong><p>50+ hours/month across sales and admin teams.</p></div>
+    <div class="card"><strong>Faster scale</strong><p>New local sites onboarded in under 1 hour with the checklist.</p></div>
+    <div class="card"><strong>Visibility</strong><p>Real-time dashboards for conversions, SEO, and attribution.</p></div>
+  </div>
+</section>
+
 
     <section>
       <h2>Docs (sanitized)</h2>
