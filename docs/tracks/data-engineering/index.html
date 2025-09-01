@@ -2,57 +2,105 @@
 <html lang="en">
 <head>
   <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Data Engineering – IBM Experience</title>
+  <title>Data Engineering & Analytics – Portfolio</title>
   <link rel="stylesheet" href="/navneeth-portfolio/assets/style.css">
   <script defer src="/navneeth-portfolio/assets/script.js"></script>
 </head>
 <body>
+  <!-- NAV -->
   <nav>
-  <div class="wrap nav-inner">
-    <div class="brand">Data Engineering & Analytics</div>
-    <div class="nav-links">
+    <div class="wrap nav-inner">
+      <div class="brand">Data Engineering & Analytics</div>
+      <div class="nav-links">
+        <a href="/navneeth-portfolio/">Home</a>
+        <a href="/navneeth-portfolio/hubspot-case-study.html">CRM & Automations</a>
+        <a href="/navneeth-portfolio/tracks/analytics/">Analytics</a>
+        <a href="mailto:navneethramachandran@yahoo.com">Email</a>
+      </div>
+      <button class="menu-btn" aria-label="Menu">☰</button>
+    </div>
+    <div class="drawer wrap">
       <a href="/navneeth-portfolio/">Home</a>
       <a href="/navneeth-portfolio/hubspot-case-study.html">CRM & Automations</a>
       <a href="/navneeth-portfolio/tracks/analytics/">Analytics</a>
       <a href="mailto:navneethramachandran@yahoo.com">Email</a>
     </div>
-    <button class="menu-btn" aria-label="Menu">☰</button>
-  </div>
-  <div class="drawer wrap">
-    <a href="/navneeth-portfolio/">Home</a>
-    <a href="/navneeth-portfolio/hubspot-case-study.html">CRM & Automations</a>
-    <a href="/navneeth-portfolio/tracks/analytics/">Analytics</a>
-    <a href="mailto:navneethramachandran@yahoo.com">Email</a>
-  </div>
-</nav>
+  </nav>
 
   <div class="wrap">
+    <!-- HERO -->
     <header class="hero">
       <h1>IBM · Selfridges — Azure + Databricks</h1>
-      <p class="lede">Enterprise data platform using ADF, Databricks (PySpark/SQL), Delta Lake, Unity Catalog, and Power BI.</p>
-      <div class="ctas">
+      <p class="lede">
+        Enterprise data platform using <strong>ADF</strong>, <strong>Azure Data Lake Storage (ADLS)</strong>, 
+        <strong>Databricks (PySpark/SQL)</strong>, <strong>Delta Lake</strong>, 
+        <strong>Auto Loader</strong>, <strong>Delta Live Tables (DLT)</strong>, 
+        <strong>Unity Catalog</strong>, <strong>Azure DevOps/Git</strong>, and <strong>Power BI</strong>.
+      </p>
+      <div class="ctas" style="gap:10px;display:flex;flex-wrap:wrap">
         <a class="btn" href="/navneeth-portfolio/projects/retail-sales-inventory.html">Open the end-to-end case study</a>
+        <a class="btn ghost" href="#banking">See banking portfolio analytics</a>
       </div>
     </header>
 
-    <section class="grid">
-      <a class="card" href="/navneeth-portfolio/projects/retail-sales-inventory.html#architecture">
-        <h3>Architecture</h3><p>ADF ingestion → Databricks transforms → Delta Lake → Power BI.</p>
-      </a>
-      <a class="card" href="/navneeth-portfolio/projects/retail-sales-inventory.html#model">
-        <h3>Data Model</h3><p>Facts: Sales & Inventory; Dims: Product, Store, Calendar, Channel, Customer.</p>
-      </a>
-      <a class="card" href="/navneeth-portfolio/projects/retail-sales-inventory.html#pipeline">
-        <h3>Pipelines</h3><p>CDC, Auto Loader, DLT expectations, SCD2 merges, orchestration.</p>
-      </a>
-      <a class="card" href="/navneeth-portfolio/projects/retail-sales-inventory.html#outcomes">
-        <h3>Outcomes</h3><p>Stock cover, sell-through, OOS alerts, promo uplift.</p>
-      </a>
-      <a class="card" href="/navneeth-portfolio/projects/banking-business-steering.html">
-        <h3>Business Steering (Banking)</h3>
-        <p>Corporate portfolio monitor, SQL deep dives, KPI impact with Python — tailored to Swedbank.</p>
-      </a>
+    <!-- PROJECT 1: Retail Sales & Inventory Lakehouse -->
+    <section class="project" id="retail">
+      <h2>Project — Retail Sales & Inventory Lakehouse</h2>
+
+      <div class="grid">
+        <div class="card">
+          <h3>Architecture</h3>
+          <p>ADF ingestion → Databricks transforms → Delta Lake → Power BI.</p>
+        </div>
+
+        <div class="card">
+          <h3>Data Model</h3>
+          <p>Facts: Sales & Inventory; Dims: Product, Store, Calendar, Channel, Customer.</p>
+        </div>
+
+        <div class="card">
+          <h3>Pipelines</h3>
+          <p>CDC, Auto Loader, DLT expectations, SCD2 merges, orchestration.</p>
+        </div>
+
+        <div class="card">
+          <h3>Outcomes</h3>
+          <p>Stock cover, sell-through, OOS alerts, promo uplift.</p>
+        </div>
+      </div>
+
+      <p style="margin-top:14px">
+        <a class="btn" href="/navneeth-portfolio/projects/retail-sales-inventory.html">Open full project</a>
+      </p>
     </section>
+
+    <!-- PROJECT 2: Business Steering (Banking) -->
+    <section class="project" id="banking">
+      <h2>Project — Business Steering (Banking)</h2>
+
+      <div class="grid">
+        <a class="card" href="/navneeth-portfolio/projects/banking-business-steering.html">
+          <h3>Corporate portfolio analytics</h3>
+          <p>Corporate portfolio monitor, SQL deep dives, KPI impact with Python — tailored to Swedbank.</p>
+        </a>
+      </div>
+
+      <p style="margin-top:14px">
+        <a class="btn ghost" href="/navneeth-portfolio/projects/banking-business-steering.html">Open project</a>
+      </p>
+    </section>
+
+    <!-- (Optional) Add more projects below by duplicating the block above
+    <section class="project" id="another-project">
+      <h2>Project — Name</h2>
+      <div class="grid">
+        <a class="card" href="/navneeth-portfolio/projects/your-project.html">
+          <h3>Subtitle</h3><p>Short description.</p>
+        </a>
+      </div>
+      <p style="margin-top:14px"><a class="btn ghost" href="/navneeth-portfolio/projects/your-project.html">Open project</a></p>
+    </section>
+    -->
 
     <footer>
       <div>© <span id="y"></span> Navneeth Ramachandran</div>
@@ -61,6 +109,13 @@
   </div>
 
   <script>document.getElementById('y').textContent=new Date().getFullYear()</script>
-  <style>.drawer{display:none!important}.drawer.open{display:block!important}.card{display:block}</style>
+
+  <!-- Page-only tweaks to keep things tidy even if global CSS changes -->
+  <style>
+    .drawer{display:none!important}.drawer.open{display:block!important}
+    .card{display:block}
+    .project{padding:22px 0;border-top:1px solid var(--line, #e5e7eb)}
+    .project h2{margin:0 0 12px}
+  </style>
 </body>
 </html>
