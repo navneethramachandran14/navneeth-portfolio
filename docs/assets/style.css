@@ -57,10 +57,9 @@ nav{
   .menu-btn{display:inline-flex}
 }
 
-/* Mobile drawer */
-.drawer{display:none; border-top:1px solid var(--line); background:var(--surface)}
-.drawer.open{display:block}
-.drawer a{display:block; padding:12px 20px; border-bottom:1px solid var(--line); color:var(--muted)}
+/* Drawer visibility fix (prevents overlay from blocking clicks) */
+.drawer{display:none !important;}
+.drawer.open{display:block !important;}
 
 /* Hero */
 header.hero{padding:58px 0 18px}
