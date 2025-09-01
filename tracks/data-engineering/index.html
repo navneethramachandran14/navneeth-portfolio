@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Data Engineering – Retail Platforms</title>
+  <title>Data Engineering – IBM Experience</title>
   <link rel="stylesheet" href="/navneeth-portfolio/assets/style.css">
   <script defer src="/navneeth-portfolio/assets/script.js"></script>
 </head>
@@ -28,25 +28,18 @@
 
   <div class="wrap">
     <header class="hero">
-      <h1>Retail Sales & Inventory Data Platform (Azure + Databricks)</h1>
-      <p class="lede">Modern lakehouse for enterprise retail (POS, e-commerce, ERP). Batch + streaming, Delta Lake (bronze/silver/gold), SCD2, and BI-ready stars.</p>
-      <div class="ctas">
-        <a class="btn" href="/navneeth-portfolio/projects/retail-sales-inventory.html">Open the end-to-end case study</a>
-      </div>
+      <h1>IBM · Selfridges – Data Engineering Experience</h1>
+      <p class="lede">At IBM, I worked with Selfridges (UK retail giant) to design and implement an <strong>Azure + Databricks</strong> data platform. My focus: ingestion pipelines, transformations with <strong>PySpark/SQL</strong>, <strong>data modeling</strong>, and <strong>dashboarding</strong> for business teams.</p>
     </header>
 
     <section class="grid">
-      <a class="card" href="/navneeth-portfolio/projects/retail-sales-inventory.html#architecture">
-        <h3>Architecture</h3><p>ADF ingestion → Databricks transforms → Delta Lake → Power BI.</p>
+      <a class="card" href="/navneeth-portfolio/projects/retail-sales-inventory.html">
+        <h3>Retail Sales & Inventory Lakehouse</h3>
+        <p>End-to-end Azure + Databricks project: ADF ingestion, Delta Lake medallion architecture, PySpark transformations, SCD2, and Power BI dashboards for daily reporting.</p>
       </a>
-      <a class="card" href="/navneeth-portfolio/projects/retail-sales-inventory.html#model">
-        <h3>Data Model</h3><p>Facts: Sales, Inventory Snapshot. Dims: Product, Store, Calendar, Channel, Customer.</p>
-      </a>
-      <a class="card" href="/navneeth-portfolio/projects/retail-sales-inventory.html#pipeline">
-        <h3>Pipelines</h3><p>CDC, Auto Loader, DLT expectations, SCD2 merges, orchestration.</p>
-      </a>
-      <a class="card" href="/navneeth-portfolio/projects/retail-sales-inventory.html#outcomes">
-        <h3>Outcomes</h3><p>Stock cover, sell-through, OOS alerts, margin & promo uplift.</p>
+      <a class="card" href="/navneeth-portfolio/projects/real-time-streaming.html">
+        <h3>Real-time Sales Streaming</h3>
+        <p>Spark Structured Streaming pipeline for point-of-sale transactions, feeding near-real-time stock visibility and alerts.</p>
       </a>
     </section>
 
@@ -55,6 +48,7 @@
       <div><a href="mailto:navneethramachandran@yahoo.com">navneethramachandran@yahoo.com</a></div>
     </footer>
   </div>
+
   <script>document.getElementById('y').textContent=new Date().getFullYear()</script>
   <style>.drawer{display:none!important}.drawer.open{display:block!important}.card{display:block}</style>
 </body>
