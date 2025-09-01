@@ -13,76 +13,43 @@
       <div class="nav-links">
         <a href="/navneeth-portfolio/">Home</a>
         <a href="/navneeth-portfolio/tracks/data-engineering/">Data Eng</a>
-        <a href="mailto:navneethramachandran@yahoo.com">Email</a>
       </div>
       <button class="menu-btn" aria-label="Menu">☰</button>
     </div>
     <div class="drawer wrap">
       <a href="/navneeth-portfolio/">Home</a>
       <a href="/navneeth-portfolio/tracks/data-engineering/">Data Eng</a>
-      <a href="mailto:navneethramachandran@yahoo.com">Email</a>
     </div>
   </nav>
 
   <div class="wrap">
     <header class="hero">
-      <h1>End-to-End Retail Lakehouse (Azure + Databricks)</h1>
-      <p class="lede">Enterprise-grade platform inspired by large department-store setups: unify POS, ERP, and e-commerce to deliver reliable sales & inventory analytics with near-real-time freshness.</p>
+      <h1>Retail Sales & Inventory Lakehouse (Azure + Databricks)</h1>
+      <p class="lede">Built at IBM for Selfridges: ADF ingestion, Databricks (PySpark/SQL) transformations, Delta Lake medallion, Unity Catalog governance, and Power BI dashboards.</p>
       <div class="ctas">
         <a class="btn" href="#architecture">Architecture</a>
         <a class="btn ghost" href="#outcomes">Outcomes</a>
       </div>
     </header>
 
-    <section id="context">
-      <h2>Business Context</h2>
-      <ul>
-        <li>Sources: POS tickets (stores), ERP inventory (e.g., SAP), e-commerce orders, product & price masters.</li>
-        <li>Challenges: late/duplicate files, schema drift, inconsistent product hierarchy, slow manual reports.</li>
-        <li>Goal: one trusted model for <strong>Sales</strong> & <strong>Inventory</strong> with D+1 and intraday refresh, governed access for BI & data science.</li>
-      </ul>
-    </section>
-
     <section id="architecture">
       <h2>Architecture</h2>
-      <div class="grid">
-        <div class="card">
-          <h3>Ingestion (ADF)</h3>
-          <p>Copy activity & REST to land raw data in ADLS Gen2 (<em>bronze</em>), partitioned by <code>ingest_date</code>. POS feed every hour; ERP/e-comm daily.</p>
-        </div>
-        <div class="card">
-          <h3>Transform (Databricks)</h3>
-          <p>Auto Loader + Delta Live Tables to normalize to <em>silver</em>; business logic to <em>gold</em>. Expectations enforce schema & null rules; failures quarantined.</p>
-        </div>
-        <div class="card">
-          <h3>Govern (Unity Catalog)</h3>
-          <p>One catalog per env; schemas for bronze/silver/gold; row-level access for stores; audit tables & lineage.</p>
-        </div>
-        <div class="card">
-          <h3>Serve (Power BI)</h3>
-          <p>Star schema for Sales & Inventory; incremental refresh; semantic measures for sell-through, stock cover, and promo uplift.</p>
-        </div>
-      </div>
+      <p><strong>ADF</strong> landed POS, ERP inventory, and e-comm orders to ADLS (bronze). <strong>Databricks</strong> processed to silver/gold Delta with DLT expectations. <strong>Unity Catalog</strong> controlled access; <strong>Power BI</strong> consumed gold stars.</p>
     </section>
 
     <section id="model">
-      <h2>Data Model (stars)</h2>
+      <h2>Data Model (star)</h2>
       <ul>
         <li><strong>FactSales</strong>(date_key, store_key, product_key, channel_key, ticket_id, qty, net_amount, discount_amount, cost_amount)</li>
         <li><strong>FactInventorySnapshot</strong>(date_key, store_key, product_key, on_hand_qty, reserved_qty, on_order_qty)</li>
-        <li><strong>DimProduct</strong> (SCD2: sku, style, color, size, dept/category/brand, cost, retail)</li>
-        <li><strong>DimStore</strong> (SCD2: store, region, open/close dates, sqft)</li>
-        <li><strong>DimCalendar</strong>, <strong>DimChannel</strong>, <strong>DimCustomer</strong> (hashed id)</li>
+        <li><strong>DimProduct</strong> (SCD2: sku, hierarchy, cost, retail)</li>
+        <li><strong>DimStore</strong> (SCD2: region, open/close, sqft)</li>
+        <li><strong>DimCalendar</strong>, <strong>DimChannel</strong>, <strong>DimCustomer</strong></li>
       </ul>
-      <div class="card"><h3>Core metric formulas</h3>
-        <pre><code>sell_through = SUM(qty) / (OpeningStock + Receipts)
-stock_cover_weeks = (OnHandQty / AVG(WeeklySales))
-gross_margin_pct = (SUM(net_amount) - SUM(cost_amount)) / SUM(net_amount)</code></pre>
-      </div>
     </section>
 
     <section id="pipeline">
-      <h2>Pipelines & Code Snippets</h2>
+      <h2>Pipelines & Snippets</h2>
       <div class="grid">
         <div class="card">
           <h3>Auto Loader (Bronze → Silver)</h3>
@@ -92,22 +59,24 @@ raw = (spark.readStream.format("cloudFiles")
   .option("cloudFiles.inferColumnTypes","true")
   .load("abfss://raw@&lt;storage&gt;.dfs.core.windows.net/pos/"))
 (raw.withColumn("_ingest_ts", current_timestamp())
-     .withColumn("_source_file", input_file_name())
- .writeStream.format("delta").option("checkpointLocation",
-  "abfss://chk@&lt;storage&gt;.dfs.core.windows.net/pos/") 
+     .withColumn("_src", input_file_name())
+ .writeStream.format("delta")
+ .option("checkpointLocation","abfss://chk@&lt;storage&gt;.dfs.core.windows.net/pos/")
  .toTable("retail.bronze_pos"))</code></pre>
         </div>
         <div class="card">
-          <h3>SCD Type-2 merge (DimProduct)</h3>
+          <h3>SCD2 for DimProduct</h3>
 <pre><code class="language-sql">MERGE INTO retail.silver_dim_product t
 USING retail.stg_product s
 ON t.sku = s.sku AND t.current_flag = true
-WHEN MATCHED AND (t.hash_diff &lt;&gt; s.hash_diff) THEN UPDATE SET current_flag=false, end_ts = current_timestamp()
-WHEN NOT MATCHED THEN INSERT (sku, dept, category, brand, color, size, cost, retail, start_ts, end_ts, current_flag, hash_diff)
-VALUES (s.sku, s.dept, s.category, s.brand, s.color, s.size, s.cost, s.retail, current_timestamp(), null, true, s.hash_diff);</code></pre>
+WHEN MATCHED AND t.hash_diff &lt;&gt; s.hash_diff THEN
+  UPDATE SET current_flag=false, end_ts=current_timestamp()
+WHEN NOT MATCHED THEN
+  INSERT (sku, dept, category, brand, cost, retail, start_ts, end_ts, current_flag, hash_diff)
+  VALUES (s.sku, s.dept, s.category, s.brand, s.cost, s.retail, current_timestamp(), null, true, s.hash_diff);</code></pre>
         </div>
         <div class="card">
-          <h3>Sales Fact build (Silver → Gold)</h3>
+          <h3>Build FactSales (Silver → Gold)</h3>
 <pre><code class="language-sql">CREATE OR REPLACE TABLE retail.gold_fact_sales AS
 SELECT d.date_key, st.store_key, p.product_key, ch.channel_key,
        s.ticket_id, s.qty, s.net_amount, s.discount_amount, s.cost_amount
@@ -117,37 +86,26 @@ JOIN retail.silver_dim_store st ON s.store_id = st.store_id AND st.current_flag 
 JOIN retail.silver_dim_product p ON s.sku = p.sku AND p.current_flag = true
 JOIN retail.silver_dim_channel ch ON s.channel = ch.channel;</code></pre>
         </div>
-        <div class="card">
-          <h3>Quality & Monitoring</h3>
-          <ul>
-            <li>DLT expectations (row rejection & metrics per table).</li>
-            <li>Daily completeness checks vs. control totals; Slack alert on deviation &gt; 1.5%.</li>
-            <li>Cost guardrails: job clusters w/ spot, auto-stop, cache selective joins, z-order on date/store.</li>
-          </ul>
-        </div>
       </div>
     </section>
 
     <section id="outcomes">
       <h2>Outcomes</h2>
       <div class="grid">
-        <div class="card"><strong>Freshness</strong><p>POS hourly; ERP daily by 06:00; dashboards refreshed by 06:30.</p></div>
-        <div class="card"><strong>Accuracy</strong><p>&lt;0.5% variance vs. finance control totals; automated reconciliation reports.</p></div>
-        <div class="card"><strong>Speed</strong><p>Ingestion → gold in ~18 min/hr window; inventory snapshot in ~9 min.</p></div>
-        <div class="card"><strong>Impact</strong><p>OOS alerts for top SKUs; promotion uplift quantified; stock cover down from 11.2 → 8.7 weeks.</p></div>
+        <div class="card"><strong>Freshness</strong><p>POS hourly; ERP daily 06:00; dashboards ready by 06:30.</p></div>
+        <div class="card"><strong>Accuracy</strong><p>&lt;0.5% variance vs finance controls; automated reconciliation.</p></div>
+        <div class="card"><strong>Speed</strong><p>Bronze→Gold in ~18 min/hr; inventory snapshot in ~9 min.</p></div>
+        <div class="card"><strong>Impact</strong><p>OOS alerts for top SKUs, stock cover 11.2 → 8.7 weeks, promo uplift measured.</p></div>
       </div>
     </section>
 
-    <section>
-      <a class="btn" href="/navneeth-portfolio/tracks/data-engineering/">← Back to Data Engineering</a>
-    </section>
+    <section><a class="btn" href="/navneeth-portfolio/tracks/data-engineering/">← Back to Data Engineering</a></section>
 
     <footer>
       <div>© <span id="y"></span> Navneeth Ramachandran</div>
       <div><a href="mailto:navneethramachandran@yahoo.com">navneethramachandran@yahoo.com</a></div>
     </footer>
   </div>
-
   <script>document.getElementById('y').textContent=new Date().getFullYear()</script>
   <style>.drawer{display:none!important}.drawer.open{display:block!important}.card{display:block}</style>
 </body>
