@@ -34,20 +34,22 @@
   <div class="wrap">
     <header class="hero">
       <h1>Data Engineering · Analytics · CRM Automations</h1>
-      <p class="lede">I build reliable systems on Azure/Databricks, GA4/GTM + Looker dashboards, and HubSpot + Make automations. Pick a track:</p>
-      <div class="ctas">
-        <a class="btn" href="/navneeth-portfolio/hubspot-case-study.html">
-          CRM & Automations (HubSpot + Make)
-        </a>
-      </div>
+      <p class="lede">I build reliable systems on Azure/Databricks, GA4/GTM + Looker dashboards, and HubSpot + Make automations. Choose a track:</p>
+      <!-- removed the big CRM CTA so all three are uniform cards -->
     </header>
 
-    <!-- Only two cards now -->
+    <!-- three uniform cards -->
     <section class="grid">
+      <a class="card" href="/navneeth-portfolio/hubspot-case-study.html">
+        <h2>CRM & Automations (HubSpot + Make)</h2>
+        <p>From-scratch CRM architecture, workflows, Make scenarios. Case study + screenshots.</p>
+      </a>
+
       <a class="card" href="/navneeth-portfolio/tracks/data-engineering/">
         <h2>Data Engineering (Azure/Databricks)</h2>
         <p>ADF → Databricks (PySpark) → Delta Lake (medallion & star) → Power BI.</p>
       </a>
+
       <a class="card" href="/navneeth-portfolio/tracks/analytics/">
         <h2>Analytics (GA4/GTM/Looker)</h2>
         <p>Master GTM, multi-site GA4, and polished Looker dashboards.</p>
@@ -62,6 +64,7 @@
       </div>
     </footer>
   </div>
+
   <script>document.getElementById('y').textContent=new Date().getFullYear()</script>
 </body>
 </html>
