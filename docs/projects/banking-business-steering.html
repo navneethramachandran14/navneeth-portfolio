@@ -1,0 +1,175 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Business Steering – Corporate Banking Portfolio Analytics</title>
+  <link rel="stylesheet" href="/navneeth-portfolio/assets/style.css">
+  <script defer src="/navneeth-portfolio/assets/script.js"></script>
+</head>
+<body>
+  <!-- NAV -->
+  <nav>
+    <div class="wrap nav-inner">
+      <div class="brand">Business Steering (Banking)</div>
+      <div class="nav-links">
+        <a href="/navneeth-portfolio/">Home</a>
+        <a href="/navneeth-portfolio/tracks/data-engineering/">Data Eng & Analytics</a>
+        <a href="mailto:navneethramachandran@yahoo.com">Email</a>
+      </div>
+      <button class="menu-btn" aria-label="Menu">☰</button>
+    </div>
+    <div class="drawer wrap">
+      <a href="/navneeth-portfolio/">Home</a>
+      <a href="/navneeth-portfolio/tracks/data-engineering/">Data Eng & Analytics</a>
+      <a href="mailto:navneethramachandran@yahoo.com">Email</a>
+    </div>
+  </nav>
+
+  <div class="wrap">
+    <!-- HERO -->
+    <header class="hero">
+      <h1>Corporate Portfolio Analytics (SQL + Python)</h1>
+      <p class="lede">Mini suite that mimics Swedbank’s Business Steering work: monitor portfolios, run SQL deep dives on large datasets, and quantify how process/policy changes affect KPIs. Built with SQL views + Python (pandas/statsmodels). Data is synthetic, structure is real.</p>
+      <div class="ctas" style="gap:10px;display:flex;flex-wrap:wrap">
+        <a class="btn" href="#monitor">Portfolio Monitor</a>
+        <a class="btn ghost" href="#deepdives">SQL Deep Dives</a>
+        <a class="btn ghost" href="#kpi">KPI Impact (Python)</a>
+      </div>
+    </header>
+
+    <!-- WHAT IT SHOWS -->
+    <section>
+      <h2>What this demonstrates</h2>
+      <ul>
+        <li><strong>Programming & statistics</strong>: Python + SQL for processing, modeling, and clear KPIs.</li>
+        <li><strong>Banking context</strong>: corporate loans, ratings/PD, collateral, industries, exposure/RWA.</li>
+        <li><strong>Communication</strong>: concise “so-what” summaries for non-technical stakeholders.</li>
+      </ul>
+    </section>
+
+    <!-- DATA MODEL -->
+    <section>
+      <h2>Simple data model (synthetic)</h2>
+      <ul>
+        <li><code>loan</code>(loan_id, customer_id, product, book_date, maturity_date, currency, ead, rate_bp)</li>
+        <li><code>rating</code>(customer_id, as_of, grade, pd)</li>
+        <li><code>payment</code>(loan_id, as_of, status, days_past_due)</li>
+        <li><code>customer</code>(customer_id, industry, country, segment)</li>
+      </ul>
+    </section>
+
+    <!-- MONITOR -->
+    <section id="monitor">
+      <h2>Portfolio Monitor (SQL views)</h2>
+      <p>Monthly pack: exposure, growth, rating migration, NPL %, top concentrations, early warnings.</p>
+      <div class="code-grid">
+        <div class="card">
+          <h3>Exposure & growth (MoM)</h3>
+<pre><code>CREATE OR REPLACE VIEW vw_exposure_mom AS
+SELECT month, SUM(ead) AS ead_total,
+       SUM(ead) - LAG(SUM(ead)) OVER (ORDER BY month) AS ead_change
+FROM (
+  SELECT DATE_TRUNC('month', book_date) AS month, ead FROM loan
+) t
+GROUP BY month
+ORDER BY month;</code></pre>
+        </div>
+        <div class="card">
+          <h3>Rating migration</h3>
+<pre><code>CREATE OR REPLACE VIEW vw_rating_migration AS
+SELECT prev.grade AS from_grade, curr.grade AS to_grade, COUNT(*) AS cnt
+FROM rating prev
+JOIN rating curr
+  ON prev.customer_id = curr.customer_id
+ AND curr.as_of = DATEADD(month, 1, prev.as_of)
+GROUP BY prev.grade, curr.grade;</code></pre>
+        </div>
+        <div class="card">
+          <h3>NPL % (stage proxy)</h3>
+<pre><code>CREATE OR REPLACE VIEW vw_npl AS
+SELECT DATE_TRUNC('month', p.as_of) AS month,
+       100.0 * SUM(CASE WHEN p.days_past_due &gt;= 90 THEN l.ead ELSE 0 END) / SUM(l.ead) AS npl_pct
+FROM payment p JOIN loan l ON p.loan_id = l.loan_id
+GROUP BY DATE_TRUNC('month', p.as_of)
+ORDER BY month;</code></pre>
+        </div>
+      </div>
+      <p class="lede"><em>Story for management:</em> “Exposure +6.2% MoM (SEK), driven by Manufacturing and Real Estate. Rating downgrades from A→BBB spiked (+1.1pp) in Real Estate; NPL stable at 1.7%. Recommend tightened LTV for new Real Estate deals and proactive outreach to BBB movers.”</p>
+    </section>
+
+    <!-- DEEP DIVES -->
+    <section id="deepdives">
+      <h2>SQL Deep Dives</h2>
+      <div class="code-grid">
+        <div class="card">
+          <h3>Top movers (concentration)</h3>
+<pre><code>WITH e AS (
+  SELECT customer_id, SUM(ead) AS ead_now FROM loan GROUP BY customer_id
+), p AS (
+  SELECT customer_id, SUM(ead) AS ead_prev FROM loan
+  WHERE book_date &lt; DATE_TRUNC('month', CURRENT_DATE) GROUP BY customer_id
+)
+SELECT c.customer_id, c.industry,
+       e.ead_now, p.ead_prev,
+       e.ead_now - COALESCE(p.ead_prev,0) AS delta
+FROM e LEFT JOIN p USING(customer_id)
+JOIN customer c USING(customer_id)
+ORDER BY delta DESC LIMIT 20;</code></pre>
+        </div>
+        <div class="card">
+          <h3>Early warnings (downgrade + DPD)</h3>
+<pre><code>SELECT l.loan_id, c.customer_id, c.industry, r.grade, p.days_past_due
+FROM loan l
+JOIN customer c USING(customer_id)
+JOIN rating r ON r.customer_id = c.customer_id
+JOIN payment p ON p.loan_id = l.loan_id
+WHERE r.grade IN ('BB','B','CCC') OR p.days_past_due BETWEEN 30 AND 89
+ORDER BY p.days_past_due DESC;</code></pre>
+        </div>
+      </div>
+    </section>
+
+    <!-- KPI IMPACT LAB -->
+    <section id="kpi">
+      <h2>KPI Impact Lab (Python)</h2>
+      <p>Quantifies how a policy/process change would have shifted KPIs. Example: higher LTV threshold for new Real Estate loans starting in May.</p>
+<pre><code># pseudo-code; runs in pandas/statsmodels
+import pandas as pd
+import statsmodels.formula.api as smf
+
+# df: month, segment, is_real_estate, post_policy, npl, margin_bp
+df['did'] = df['is_real_estate'] * df['post_policy']
+model = smf.ols('npl ~ is_real_estate + post_policy + did', data=df).fit()
+effect_npl = model.params['did']  # policy impact on NPL (pp)
+
+model2 = smf.ols('margin_bp ~ is_real_estate + post_policy + did', data=df).fit()
+effect_margin = model2.params['did']  # impact on margin (bps)</code></pre>
+      <p class="lede"><em>Management takeaway:</em> “Policy would cut NPL by ~0.3pp in Real Estate with a −6–8bps margin trade-off. Net expected loss ↓ given current PD/LGD. Recommend pilot in Stockholm portfolio.”</p>
+    </section>
+
+    <!-- SOFT SKILLS -->
+    <section>
+      <h2>Communicating to non-technical audience</h2>
+      <ul>
+        <li>1-pager with 3 charts: Exposure growth, Rating migration, NPL trend.</li>
+        <li>Plain-language “So what?” bullets and a clear recommendation.</li>
+        <li>Appendix: SQL/Python used, reproducible notebook (on request).</li>
+      </ul>
+    </section>
+
+    <!-- FOOTER -->
+    <p><a class="btn" href="/navneeth-portfolio/tracks/data-engineering/">← Back to Data Eng & Analytics</a></p>
+    <footer>
+      <div>© <span id="y"></span> Navneeth Ramachandran</div>
+      <div><a href="mailto:navneethramachandran@yahoo.com">navneethramachandran@yahoo.com</a></div>
+    </footer>
+  </div>
+
+  <script>document.getElementById('y').textContent=new Date().getFullYear()</script>
+  <style>
+    .drawer{display:none!important}.drawer.open{display:block!important}.card{display:block}
+    .code-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(360px,1fr));gap:16px}
+    pre{background:#0f172a;color:#e5eaf5;border-radius:12px;border:1px solid var(--line);padding:12px 14px;overflow:auto}
+  </style>
+</body>
+</html>
