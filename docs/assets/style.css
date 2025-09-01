@@ -57,6 +57,37 @@ nav{
   .menu-btn{display:inline-flex}
 }
 
+/* --- Code cards & blocks --- */
+.code-grid { /* a slightly wider grid only for code sections */
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
+  gap: 16px;
+}
+
+.card { overflow: hidden; } /* keep content inside the card */
+
+pre, code {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace;
+  font-size: 13.5px;
+  line-height: 1.45;
+}
+
+pre {
+  margin: 8px 0 0;
+  padding: 12px 14px;
+  border-radius: 12px;
+  border: 1px solid var(--line);
+  background: #0f172a;      /* works nicely in light mode */
+  color: #e5eaf5;
+  overflow-x: auto;          /* horizontal scroll instead of overflow */
+  overflow-y: hidden;
+  max-width: 100%;
+  -webkit-overflow-scrolling: touch;
+}
+
+.card h3 { margin: 0 0 8px; }
+
+
 /* Ensure cards are clickable + drawer hidden by default */
 .card{display:block}
 .drawer{display:none !important;}
