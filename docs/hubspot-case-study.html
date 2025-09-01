@@ -4,55 +4,50 @@
   <meta charset="utf-8"/><meta name="viewport" content="width=device-width, initial-scale=1"/>
   <title>Case Study – End-to-End HubSpot CRM & Automations</title>
   <meta name="description" content="From-scratch HubSpot CRM, Make.com automations, and multi-site GTM/GA4 analytics with Looker Studio dashboards."/>
-  <link rel="icon" href="images/favicon.png"/>
+  <link rel="icon" href="/navneeth-portfolio/images/hero-premium.svg"/>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="/navneeth-portfolio/assets/style.css">
-  <script defer src="/navneeth-portfolio/assets/script.js"></script>
-  <style>
-    /* page-specific tiny styles */
-    .tags { display:flex; flex-wrap:wrap; gap:8px; margin-top:10px }
-    .tag { display:inline-block; padding:6px 10px; border-radius:999px; border:1px solid var(--line); color:var(--muted); font-size:13px }
-  </style>
+  <link rel="stylesheet" href="/navneeth-portfolio/assets/style.css?v=2">
+  <script defer src="/navneeth-portfolio/assets/script.js?v=2"></script>
+  <style>.tags{display:flex;flex-wrap:wrap;gap:8px;margin-top:10px}.tag{padding:6px 10px;border:1px solid var(--line);border-radius:999px;color:var(--muted);font-size:13px}</style>
 </head>
 <body>
-  <!-- Consistent nav -->
   <nav>
-  <div class="wrap nav-inner">
-    <div class="brand">Navneeth · Portfolio</div>
-    <div class="nav-links">
+    <div class="wrap nav-inner">
+      <div class="brand">Navneeth · Portfolio</div>
+      <div class="nav-links">
+        <a href="/navneeth-portfolio/">Home</a>
+        <a href="/navneeth-portfolio/tracks/crm/">CRM</a>
+        <a href="/navneeth-portfolio/tracks/data-engineering/">Data Eng</a>
+        <a href="/navneeth-portfolio/tracks/analytics/">Analytics</a>
+        <a href="https://www.linkedin.com/in/navneethramachandran/" target="_blank" rel="noreferrer">LinkedIn</a>
+        <a href="mailto:navneethramachandran@yahoo.com">Email</a>
+      </div>
+      <button class="menu-btn" aria-label="Menu">☰</button>
+    </div>
+    <div class="drawer wrap">
+      <a href="/navneeth-portfolio/">Home</a>
       <a href="/navneeth-portfolio/tracks/crm/">CRM</a>
       <a href="/navneeth-portfolio/tracks/data-engineering/">Data Eng</a>
       <a href="/navneeth-portfolio/tracks/analytics/">Analytics</a>
       <a href="https://www.linkedin.com/in/navneethramachandran/" target="_blank" rel="noreferrer">LinkedIn</a>
       <a href="mailto:navneethramachandran@yahoo.com">Email</a>
     </div>
-    <button class="menu-btn" aria-label="Menu">☰</button>
-  </div>
-  <div class="drawer wrap">
-    <a href="/navneeth-portfolio/tracks/crm/">CRM</a>
-    <a href="/navneeth-portfolio/tracks/data-engineering/">Data Eng</a>
-    <a href="/navneeth-portfolio/tracks/analytics/">Analytics</a>
-    <a href="https://www.linkedin.com/in/navneethramachandran/" target="_blank" rel="noreferrer">LinkedIn</a>
-    <a href="mailto:navneethramachandran@yahoo.com">Email</a>
-  </div>
-</nav>
+  </nav>
 
   <div class="wrap">
     <header class="hero">
       <h1>End-to-End HubSpot CRM & Automations</h1>
       <p class="lede">Architected and implemented a production CRM & marketing automation ecosystem with <strong>HubSpot</strong>, <strong>Make.com</strong>, and a unified analytics layer (<strong>GTM</strong>, <strong>GA4</strong>, <strong>Looker Studio</strong>) for a multi-location services business in Sweden.</p>
       <div class="ctas" style="margin-top:16px">
-        <a class="btn" href="tracks/crm/">See CRM track</a>
-        <a class="btn ghost" href="index.html">← Back to portfolio</a>
+        <a class="btn" href="/navneeth-portfolio/tracks/crm/">See CRM track</a>
+        <a class="btn ghost" href="/navneeth-portfolio/">← Back to portfolio</a>
       </div>
-      <div class="tags">
-        <span class="tag">HubSpot</span><span class="tag">Make.com</span><span class="tag">GTM</span><span class="tag">GA4</span><span class="tag">Looker Studio</span>
-      </div>
+      <div class="tags"><span class="tag">HubSpot</span><span class="tag">Make.com</span><span class="tag">GTM</span><span class="tag">GA4</span><span class="tag">Looker Studio</span></div>
     </header>
 
     <section>
       <h2>Context & Problem</h2>
-      <p>There was no central CRM, lead handling was manual (forms, emails, phone calls), and analytics were siloed by site. The business needed a <strong>scalable foundation</strong> that unified capture → CRM → automation → reporting across present and future local websites.</p>
+      <p>There was no central CRM…</p>
     </section>
 
     <section>
@@ -71,49 +66,39 @@
       <div class="grid">
         <div class="card">
           <h3>HubSpot CRM</h3>
-          <p>Custom pipeline stages (Lead → Quote → Booking → ROT/Grön teknik → Invoicing → Closed). Forms include Quote Approval, ROT, Egenkontroll, and Call Request. Hidden fields carry <code>site_id</code> for multi-site attribution.</p>
-          <img src="images/hubspot-pipeline.png" alt="HubSpot pipeline (sanitized)">
+          <p>Custom pipeline stages…</p>
+          <img src="/navneeth-portfolio/images/hubspot-pipeline.png" alt="HubSpot pipeline (sanitized)">
         </div>
         <div class="card">
           <h3>Make.com Automations</h3>
-          <p>Scenarios for New Lead (Privat/Batteri/Laddbox & Företag/BRF), Slack alerts, Quote → Booking with technician calendar invites, ROT & Grön teknik flows, Egenkontroll follow-ups and thank-you emails. Google Sheets/Data Store used where appropriate.</p>
-          <img src="images/make-scenario.png" alt="Make.com scenario (sanitized)">
+          <p>Scenarios for New Lead…</p>
+          <img src="/navneeth-portfolio/images/make-scenario.png" alt="Make.com scenario (sanitized)">
         </div>
         <div class="card">
           <h3>Analytics (GTM + GA4 + Looker Studio)</h3>
-          <p>Single GTM master container across sites with event coverage: <code>form_submit</code>, <code>phone_click</code>, <code>email_click</code>, and engagement. GA4 uses one property with multiple streams; <code>site_id</code> enables site-level filtering. Looker Studio dashboards for Website Performance, SEO, and Attribution.</p>
-          <img src="images/looker-dashboard.png" alt="Looker Studio dashboard (sanitized)">
+          <p>Single GTM master container…</p>
+          <img src="/navneeth-portfolio/images/looker-website-performance.png" alt="Looker Studio dashboard (sanitized)">
         </div>
         <div class="card">
           <h3>Operational Standards</h3>
-          <p>Guidelines for consistent calendar invite formatting, and a documented 6-step flow to onboard new sites (create GA4 stream, update GTM lookups, publish, install GTM, test in DebugView, confirm dashboards).</p>
-          <img src="images/booking-format.png" alt="Booking field formatting (sanitized)">
+          <p>Guidelines for consistent calendar invite formatting…</p>
+          <img src="/navneeth-portfolio/images/booking-format.png" alt="Booking field formatting (sanitized)">
         </div>
       </div>
     </section>
 
     <section>
-      <h2>Impact</h2>
-      <div class="grid">
-        <div class="card"><strong>Manual Work ↓</strong><p>~80% reduction in manual lead handling via automation.</p></div>
-        <div class="card"><strong>Time Saved</strong><p>50+ hours/month across sales & admin.</p></div>
-        <div class="card"><strong>Scalability</strong><p>New sites can be onboarded in &lt; 1 hour.</p></div>
-        <div class="card"><strong>Visibility</strong><p>Real-time dashboards for conversions, SEO & growth.</p></div>
-      </div>
+      <h2>Docs (sanitized)</h2>
+      <ul>
+        <li><a href="/navneeth-portfolio/docs/hubspot-setup-pipelines-forms.pdf" target="_blank" rel="noopener">HubSpot setup: pipelines, properties, forms & templates</a></li>
+        <li><a href="/navneeth-portfolio/docs/make-automations-data-store.pdf" target="_blank" rel="noopener">Make.com automations & data store</a></li>
+        <li><a href="/navneeth-portfolio/docs/BookingFieldInstructions.pdf" target="_blank" rel="noopener">Booking field instructions</a></li>
+        <li><a href="/navneeth-portfolio/docs/analytics-gtm-ga4-looker-setup.pdf" target="_blank" rel="noopener">Analytics: GTM + GA4 + Looker Studio (setup)</a></li>
+        <li><a href="/navneeth-portfolio/docs/dashboard-website-performance-ga4.pdf" target="_blank" rel="noopener">Dashboard: Website Performance (GA4)</a></li>
+        <li><a href="/navneeth-portfolio/docs/dashboard-seo-insights-gsc.pdf" target="_blank" rel="noopener">Dashboard: SEO Insights (GSC)</a></li>
+        <li><a href="/navneeth-portfolio/docs/dashboard-attribution-growth.pdf" target="_blank" rel="noopener">Dashboard: Attribution & Growth Opportunities</a></li>
+      </ul>
     </section>
-
-    <section>
-  <h2>Docs (sanitized)</h2>
-  <ul>
-    <li><a href="docs/hubspot-setup-pipelines-forms.pdf" target="_blank" rel="noopener">HubSpot setup: pipelines, properties, forms & templates</a></li>
-    <li><a href="docs/make-automations-data-store.pdf" target="_blank" rel="noopener">Make.com automations & data store</a></li>
-    <li><a href="docs/BookingFieldInstructions.pdf" target="_blank" rel="noopener">Booking field instructions</a></li>
-    <li><a href="docs/analytics-gtm-ga4-looker-setup.pdf" target="_blank" rel="noopener">Analytics: GTM + GA4 + Looker Studio (setup)</a></li>
-    <li><a href="docs/dashboard-website-performance-ga4.pdf" target="_blank" rel="noopener">Dashboard: Website Performance (GA4)</a></li>
-    <li><a href="docs/dashboard-seo-insights-gsc.pdf" target="_blank" rel="noopener">Dashboard: SEO Insights (GSC)</a></li>
-    <li><a href="docs/dashboard-attribution-growth.pdf" target="_blank" rel="noopener">Dashboard: Attribution & Growth Opportunities</a></li>
-  </ul>
-</section>
 
     <footer>
       <div>© <span id="y"></span> Navneeth Ramachandran</div>
@@ -123,7 +108,6 @@
       </div>
     </footer>
   </div>
-
   <script>document.getElementById('y').textContent=new Date().getFullYear()</script>
 </body>
 </html>
