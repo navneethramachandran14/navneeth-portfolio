@@ -57,7 +57,8 @@ nav{
   .menu-btn{display:inline-flex}
 }
 
-/* Drawer visibility fix (prevents overlay from blocking clicks) */
+/* Ensure cards are clickable + drawer hidden by default */
+.card{display:block}
 .drawer{display:none !important;}
 .drawer.open{display:block !important;}
 
