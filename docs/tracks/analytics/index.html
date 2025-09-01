@@ -1,14 +1,152 @@
-<!doctype html><meta charset="utf-8">
-<link rel="stylesheet" href="/navneeth-portfolio/assets/style.css">
-<script defer src="/navneeth-portfolio/assets/script.js"></script>
-<nav><div class="wrap nav-inner"><div class="brand">Analytics</div>
-<div class="nav-links"><a href="/navneeth-portfolio/">Home</a>
-<a href="/navneeth-portfolio/tracks/crm/">CRM</a>
-<a href="/navneeth-portfolio/tracks/data-engineering/">Data Eng</a></div>
-<button class="menu-btn" aria-label="Menu">☰</button></div>
-<div class="drawer wrap"><a href="/navneeth-portfolio/">Home</a>
-<a href="/navneeth-portfolio/tracks/crm/">CRM</a>
-<a href="/navneeth-portfolio/tracks/data-engineering/">Data Eng</a></div></nav>
-<div class="wrap"><header class="hero"><h1>Analytics (GA4/GTM/Looker)</h1>
-<p class="lede">Tracking standards, multi-site GA4, and dashboards.</p></header></div>
-<style>.drawer{display:none!important}.drawer.open{display:block!important}.card{display:block}</style>
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Analytics – GA4 · GTM · Looker Studio</title>
+  <link rel="stylesheet" href="/navneeth-portfolio/assets/style.css">
+  <script defer src="/navneeth-portfolio/assets/script.js"></script>
+</head>
+<body>
+  <!-- NAV -->
+  <nav>
+    <div class="wrap nav-inner">
+      <div class="brand">Analytics (GA4/GTM/Looker)</div>
+      <div class="nav-links">
+        <a href="/navneeth-portfolio/">Home</a>
+        <a href="/navneeth-portfolio/tracks/crm/">CRM</a>
+        <a href="/navneeth-portfolio/tracks/data-engineering/">Data Eng & Analytics</a>
+        <a href="mailto:navneethramachandran@yahoo.com">Email</a>
+      </div>
+      <button class="menu-btn" aria-label="Menu">☰</button>
+    </div>
+    <div class="drawer wrap">
+      <a href="/navneeth-portfolio/">Home</a>
+      <a href="/navneeth-portfolio/tracks/crm/">CRM</a>
+      <a href="/navneeth-portfolio/tracks/data-engineering/">Data Eng & Analytics</a>
+      <a href="mailto:navneethramachandran@yahoo.com">Email</a>
+    </div>
+  </nav>
+
+  <div class="wrap">
+    <!-- HERO -->
+    <header class="hero">
+      <h1>Multi-site Analytics Layer (GTM → GA4 → Looker Studio)</h1>
+      <p class="lede">
+        Master GTM container across sites, one GA4 property with multiple streams, and production dashboards for
+        Website Performance, SEO, and Attribution. Built for fast onboarding and trustworthy KPIs.
+      </p>
+      <div class="ctas" style="gap:10px;display:flex;flex-wrap:wrap">
+        <a class="btn" href="#overview">Overview</a>
+        <a class="btn ghost" href="#dashboards">Dashboards</a>
+        <a class="btn ghost" href="#docs">Docs</a>
+      </div>
+    </header>
+
+    <!-- OVERVIEW -->
+    <section id="overview">
+      <h2>What I built</h2>
+      <ul>
+        <li><strong>GTM master container</strong> with standardized events (<code>form_submit</code>, <code>phone_click</code>, <code>email_click</code>, engagement).</li>
+        <li><strong>GA4</strong> single property, multiple data streams (one per site), unified taxonomy and conversions.</li>
+        <li><strong>Looker Studio</strong> dashboards: Website Performance (GA4), SEO Insights (GSC), Attribution & Growth.</li>
+        <li><strong>New-site onboarding</strong> checklist – add stream, update GTM lookups, publish, validate in DebugView, dashboards auto-populate.</li>
+      </ul>
+    </section>
+
+    <!-- GTM / GA4 DETAILS -->
+    <section>
+      <h2>Tracking foundations</h2>
+      <div class="grid">
+        <div class="card">
+          <h3>GTM Master Container</h3>
+          <p>
+            Reusable tags/triggers/variables; Lookup Tables for site-specific IDs; form tracking with
+            <code>form_name</code>; click tracking for tel/mail/CTA; UTM normalization; optional hidden
+            <code>site_id</code> field on forms for cross-site attribution.
+          </p>
+        </div>
+        <div class="card">
+          <h3>GA4 Property & Streams</h3>
+          <p>
+            One property, multiple streams (Site A/B/C). Enhanced Measurement + custom dimensions:
+            <code>site_id</code>, <code>form_name</code>, <code>page_type</code>. Conversions mapped to
+            <code>generate_lead</code>, <code>form_submit</code>, and key CTA clicks.
+          </p>
+        </div>
+        <div class="card">
+          <h3>Onboarding a new site (6 steps)</h3>
+          <ol>
+            <li>Create GA4 stream → grab <em>Measurement ID</em>.</li>
+            <li>Update GTM lookups/variables and deploy.</li>
+            <li>Install GTM snippet on the new site.</li>
+            <li>Test in GTM Preview + GA4 DebugView.</li>
+            <li>Add <code>site_id</code> hidden field to forms if used.</li>
+            <li>Confirm dashboards populate (filters by <code>site_id</code>).</li>
+          </ol>
+        </div>
+      </div>
+    </section>
+
+    <!-- DASHBOARDS -->
+    <section id="dashboards">
+      <h2>Dashboards</h2>
+      <div class="grid">
+        <a class="card" href="/navneeth-portfolio/docs/dashboard-website-performance-ga4.pdf" target="_blank" rel="noopener">
+          <h3>Website Performance (GA4)</h3>
+          <p>Traffic, engagement, conversions, landing pages, devices. Built for daily stand-ups.</p>
+        </a>
+        <a class="card" href="/navneeth-portfolio/docs/dashboard-seo-insights-gsc.pdf" target="_blank" rel="noopener">
+          <h3>SEO Insights (GSC)</h3>
+          <p>Queries, page performance, CTR & position trends, quick wins per site.</p>
+        </a>
+        <a class="card" href="/navneeth-portfolio/docs/dashboard-attribution-growth.pdf" target="_blank" rel="noopener">
+          <h3>Attribution & Growth Opportunities</h3>
+          <p>Channel performance, assisted conversions, top-of-funnel content and landing pages to scale.</p>
+        </a>
+      </div>
+      <p style="margin-top:10px">
+        <img src="/navneeth-portfolio/images/project-looker-dashboard.svg" alt="Looker Studio dashboard placeholder" class="card-img">
+      </p>
+    </section>
+
+    <!-- DOCS -->
+    <section id="docs">
+      <h2>Docs (sanitized)</h2>
+      <ul>
+        <li>
+          <a href="/navneeth-portfolio/docs/analytics-gtm-ga4-looker-setup.pdf" target="_blank" rel="noopener">
+            Analytics Setup: GTM + GA4 + Looker Studio
+          </a>
+          — step-by-step config, naming, data layer, and validation.
+        </li>
+        <li><a href="/navneeth-portfolio/docs/dashboard-website-performance-ga4.pdf" target="_blank" rel="noopener">Dashboard: Website Performance (GA4)</a></li>
+        <li><a href="/navneeth-portfolio/docs/dashboard-seo-insights-gsc.pdf" target="_blank" rel="noopener">Dashboard: SEO Insights (GSC)</a></li>
+        <li><a href="/navneeth-portfolio/docs/dashboard-attribution-growth.pdf" target="_blank" rel="noopener">Dashboard: Attribution & Growth</a></li>
+      </ul>
+    </section>
+
+    <!-- IMPACT -->
+    <section>
+      <h2>Impact</h2>
+      <div class="grid">
+        <div class="card"><strong>1 property, many sites</strong><p>Shared taxonomy + filters by <code>site_id</code> keeps reporting simple.</p></div>
+        <div class="card"><strong>Fast onboarding</strong><p>New site live in &lt; 1 hour with the 6-step checklist.</p></div>
+        <div class="card"><strong>Trustworthy metrics</strong><p>DebugView validation + UTM normalization = reliable conversions.</p></div>
+      </div>
+    </section>
+
+    <p><a class="btn" href="/navneeth-portfolio/">← Back to Home</a></p>
+
+    <footer>
+      <div>© <span id="y"></span> Navneeth Ramachandran</div>
+      <div><a href="mailto:navneethramachandran@yahoo.com">navneethramachandran@yahoo.com</a></div>
+    </footer>
+  </div>
+
+  <script>document.getElementById('y').textContent=new Date().getFullYear()</script>
+  <style>
+    .drawer{display:none!important}.drawer.open{display:block!important}.card{display:block}
+    .card-img{width:100%;height:auto;border:1px solid var(--line);border-radius:12px;margin-top:6px}
+  </style>
+</body>
+</html>
