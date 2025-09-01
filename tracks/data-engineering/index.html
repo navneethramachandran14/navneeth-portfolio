@@ -2,9 +2,9 @@
 <html lang="en">
 <head>
   <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Data Engineering – Azure/Databricks</title>
-  <link rel="stylesheet" href="/navneeth-portfolio/assets/style.css?v=2">
-  <script defer src="/navneeth-portfolio/assets/script.js?v=2"></script>
+  <title>Data Engineering – Retail Platforms</title>
+  <link rel="stylesheet" href="/navneeth-portfolio/assets/style.css">
+  <script defer src="/navneeth-portfolio/assets/script.js"></script>
 </head>
 <body>
   <nav>
@@ -28,18 +28,25 @@
 
   <div class="wrap">
     <header class="hero">
-      <h1>Azure Data Engineering</h1>
-      <p class="lede">ADF ingestion → Databricks (PySpark) transforms → Delta Lake (medallion & star) → Power BI. DLT/Unity Catalog where relevant.</p>
+      <h1>Retail Sales & Inventory Data Platform (Azure + Databricks)</h1>
+      <p class="lede">Modern lakehouse for enterprise retail (POS, e-commerce, ERP). Batch + streaming, Delta Lake (bronze/silver/gold), SCD2, and BI-ready stars.</p>
+      <div class="ctas">
+        <a class="btn" href="/navneeth-portfolio/projects/retail-sales-inventory.html">Open the end-to-end case study</a>
+      </div>
     </header>
 
     <section class="grid">
-      <a class="card" href="https://github.com/navneethramachandran14" target="_blank" rel="noreferrer">
-        <h3>Retail Sales & Inventory</h3>
-        <p>ETL, SCD, star schema in Delta; PBIX visualization.</p>
+      <a class="card" href="/navneeth-portfolio/projects/retail-sales-inventory.html#architecture">
+        <h3>Architecture</h3><p>ADF ingestion → Databricks transforms → Delta Lake → Power BI.</p>
       </a>
-      <a class="card" href="https://github.com/navneethramachandran14" target="_blank" rel="noreferrer">
-        <h3>Real-time Streaming</h3>
-        <p>Spark Structured Streaming → Delta; bronze/silver/gold.</p>
+      <a class="card" href="/navneeth-portfolio/projects/retail-sales-inventory.html#model">
+        <h3>Data Model</h3><p>Facts: Sales, Inventory Snapshot. Dims: Product, Store, Calendar, Channel, Customer.</p>
+      </a>
+      <a class="card" href="/navneeth-portfolio/projects/retail-sales-inventory.html#pipeline">
+        <h3>Pipelines</h3><p>CDC, Auto Loader, DLT expectations, SCD2 merges, orchestration.</p>
+      </a>
+      <a class="card" href="/navneeth-portfolio/projects/retail-sales-inventory.html#outcomes">
+        <h3>Outcomes</h3><p>Stock cover, sell-through, OOS alerts, margin & promo uplift.</p>
       </a>
     </section>
 
@@ -49,5 +56,6 @@
     </footer>
   </div>
   <script>document.getElementById('y').textContent=new Date().getFullYear()</script>
+  <style>.drawer{display:none!important}.drawer.open{display:block!important}.card{display:block}</style>
 </body>
 </html>
