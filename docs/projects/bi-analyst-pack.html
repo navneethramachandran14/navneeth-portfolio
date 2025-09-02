@@ -1,0 +1,155 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Business Intelligence Analyst – Case Pack</title>
+  <link rel="stylesheet" href="/navneeth-portfolio/assets/style.css">
+  <script defer src="/navneeth-portfolio/assets/script.js"></script>
+</head>
+<body>
+<nav>
+  <div class="wrap nav-inner">
+    <div class="brand">BI Analyst – Case Pack</div>
+    <div class="nav-links">
+      <a href="/navneeth-portfolio/">Home</a>
+      <a href="/navneeth-portfolio/tracks/data-engineering/">Data Eng</a>
+      <a href="/navneeth-portfolio/tracks/analytics/">Analytics</a>
+      <a href="mailto:navneethramachandran@yahoo.com">Email</a>
+    </div>
+    <button class="menu-btn" aria-label="Menu">☰</button>
+  </div>
+  <div class="drawer wrap">
+    <a href="/navneeth-portfolio/">Home</a>
+    <a href="/navneeth-portfolio/tracks/data-engineering/">Data Eng</a>
+    <a href="/navneeth-portfolio/tracks/analytics/">Analytics</a>
+    <a href="mailto:navneethramachandran@yahoo.com">Email</a>
+  </div>
+</nav>
+
+<div class="wrap">
+  <header class="hero">
+    <h1>Business Intelligence Analyst – Case Pack</h1>
+    <p class="lede">
+      Practical examples that match a BI Analyst role: KPI dashboards (Power BI/Looker), solid SQL, and
+      clear stakeholder storytelling. Built on Azure/Databricks + GA4/GTM where relevant.
+    </p>
+  </header>
+
+  <!-- WHAT I BRING -->
+  <section>
+    <h2>What I bring</h2>
+    <ul>
+      <li><strong>Dashboards & KPIs</strong>: revenue, margin, inventory turns, OTIF, OOS, campaign performance.</li>
+      <li><strong>Strong SQL</strong>: star-schema views, deep dives, data quality checks.</li>
+      <li><strong>Power BI / Looker</strong>: metric layers, filters, refresh schedules, stakeholder-ready layouts.</li>
+      <li><strong>Communication</strong>: 1-page summaries with “so-what” and recommendations.</li>
+    </ul>
+  </section>
+
+  <!-- RELEVANT PROJECTS -->
+  <section>
+    <h2>Relevant projects</h2>
+    <div class="grid">
+      <a class="card" href="/navneeth-portfolio/projects/retail-sales-inventory.html">
+        <h3>Retail Sales & Inventory Lakehouse</h3>
+        <p>Sales/Inventory stars, DAX/SQL KPIs, daily BI pack for trading/merch.</p>
+      </a>
+      <a class="card" href="/navneeth-portfolio/projects/daily-sales-dashboard.html">
+        <h3>Daily Sales Dashboard</h3>
+        <p>Revenue, margin, units; LY/WoW; fast refresh for morning stand-ups.</p>
+      </a>
+      <a class="card" href="/navneeth-portfolio/projects/customer-360-mini-mart.html">
+        <h3>Customer 360 Mini-Mart</h3>
+        <p>RFM segments for CRM targeting; repeat-purchase insights.</p>
+      </a>
+    </div>
+  </section>
+
+  <!-- DASHBOARDS (PDF links you already host) -->
+  <section id="dash">
+    <h2>Dashboard samples (PDF)</h2>
+    <div class="grid">
+      <a class="card" target="_blank" rel="noopener" href="/navneeth-portfolio/docs/dashboard-website-performance-ga4.pdf">
+        <h3>Website Performance</h3><p>Engagement & conversions with clean, stakeholder-friendly layout.</p>
+      </a>
+      <a class="card" target="_blank" rel="noopener" href="/navneeth-portfolio/docs/dashboard-seo-insights-gsc.pdf">
+        <h3>SEO Insights</h3><p>Query/page performance; quick wins table for action.</p>
+      </a>
+      <a class="card" target="_blank" rel="noopener" href="/navneeth-portfolio/docs/dashboard-attribution-growth.pdf">
+        <h3>Attribution & Growth</h3><p>Channel performance + assisted conversions (BI storytelling).</p>
+      </a>
+    </div>
+    <p style="margin-top:8px"><small>Power BI versions available on request; designs mirror the same metrics/structure.</small></p>
+  </section>
+
+  <!-- SQL + DAX SNIPPETS -->
+  <section>
+    <h2>Representative SQL & DAX</h2>
+    <div class="code-grid">
+      <div class="card">
+        <h3>SQL – sales KPIs view</h3>
+<pre><code>CREATE OR REPLACE VIEW bi.v_sales_kpis AS
+SELECT d.date_date,
+       SUM(s.net_amount) AS revenue,
+       SUM(s.net_amount - s.cost_amount) AS gross_margin,
+       SUM(s.qty) AS units
+FROM retail.gold_fact_sales s
+JOIN retail.silver_dim_date d ON s.date_key = d.date_key
+GROUP BY d.date_date;</code></pre>
+      </div>
+      <div class="card">
+        <h3>DAX – margin %, LY</h3>
+<pre><code>Revenue := SUM('v_sales_kpis'[revenue])
+Gross Margin := SUM('v_sales_kpis'[gross_margin])
+Margin % := DIVIDE([Gross Margin], [Revenue])
+
+Revenue LY :=
+CALCULATE([Revenue], DATEADD('v_sales_kpis'[date_date], -1, YEAR))</code></pre>
+      </div>
+      <div class="card">
+        <h3>SQL – inventory turns & OTIF</h3>
+<pre><code>-- inventory turns = COGS / Avg Inventory
+CREATE OR REPLACE VIEW bi.v_inv_turns AS
+SELECT d.month,
+       SUM(cogs) / NULLIF(AVG(avg_inventory),0) AS inv_turns
+FROM finance.monthly_cogs c
+JOIN supply.avg_inventory i USING(month)
+JOIN dim_date d ON d.month = c.month
+GROUP BY d.month;
+
+-- OTIF: on-time, in-full deliveries
+CREATE OR REPLACE VIEW bi.v_otif AS
+SELECT DATE_TRUNC('month', delivered_at) AS month,
+       100.0*AVG(CASE WHEN on_time=1 AND in_full=1 THEN 1 ELSE 0 END) AS otif_pct
+FROM logistics.shipments
+GROUP BY DATE_TRUNC('month', delivered_at);</code></pre>
+      </div>
+    </div>
+  </section>
+
+  <!-- SWEDISH MINI SUMMARY (nice for local hiring) -->
+  <section>
+    <h2>Kort sammanfattning (svenska)</h2>
+    <p>
+      BI-analytiker med fokus på tydliga KPI:er och affärsvärde. Erfarenhet av Power BI/Looker, SQL, och
+      datamodellering (stjärnschema). Van att paketera insikter för verksamheten och driva förbättringar.
+    </p>
+  </section>
+
+  <p><a class="btn" href="mailto:navneethramachandran@yahoo.com">Tillgänglig för intervju</a></p>
+
+  <footer>
+    <div>© <span id="y"></span> Navneeth Ramachandran</div>
+    <div><a href="mailto:navneethramachandran@yahoo.com">navneethramachandran@yahoo.com</a></div>
+  </footer>
+</div>
+
+<script>document.getElementById('y').textContent=new Date().getFullYear()</script>
+<style>
+  .drawer{display:none!important}.drawer.open{display:block!important}
+  .card{display:block}
+  .code-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(360px,1fr));gap:16px}
+  pre{background:#0f172a;color:#e5eaf5;border-radius:12px;border:1px solid var(--line);padding:12px 14px;overflow:auto}
+</style>
+</body>
+</html>
