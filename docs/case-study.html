@@ -19,23 +19,39 @@
 </head>
 <body class="min-h-screen bg-gradient-to-b from-slate-50 to-white text-slate-800">
   <!-- Header -->
-  <header class="sticky top-0 z-30 backdrop-blur bg-white/75 border-b">
-    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 flex items-center justify-between h-16">
-      <a href="#" class="text-slate-900 font-extrabold tracking-tight text-lg">Navneeth • Volvo CE Case Study</a>
-      <nav class="hidden md:flex items-center gap-6">
-        <a href="#summary" class="text-sm hover:text-slate-900">Summary</a>
-        <a href="#architecture" class="text-sm hover:text-slate-900">Architecture</a>
-        <a href="#onboarding" class="text-sm hover:text-slate-900">Onboarding</a>
-        <a href="#runtime" class="text-sm hover:text-slate-900">Run-time & RCA</a>
-        <a href="#docs" class="text-sm hover:text-slate-900">Docs & Handover</a>
-        <a href="#analytics" class="text-sm hover:text-slate-900">Analytics/ML</a>
-        <a href="#advanced" class="text-sm hover:text-slate-900">Advanced Scenario</a>
-        <a href="integrations-volvo.html#runtime" class="text-sm hover:text-slate-900">
-  Back to Portfolio
-</a>
-      </nav>
-    </div>
-  </header>
+<header class="sticky top-0 z-30 backdrop-blur bg-white/80 border-b">
+  <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 h-16 flex items-center">
+    <!-- Brand -->
+    <a href="case-study.html"
+       class="shrink-0 text-slate-900 font-extrabold tracking-tight text-lg mr-8 whitespace-nowrap">
+      Navneeth • Volvo CE Case Study
+    </a>
+
+    <!-- Nav (with visual divider + extra gap + nowrap + scroll if narrow) -->
+    <nav class="hidden md:flex items-center gap-8 pl-8 ml-4 border-l border-slate-200 whitespace-nowrap overflow-x-auto">
+      <a href="#summary" class="text-sm text-slate-700 hover:text-slate-900">Summary</a>
+      <a href="#architecture" class="text-sm text-slate-700 hover:text-slate-900">Architecture</a>
+      <a href="#onboarding" class="text-sm text-slate-700 hover:text-slate-900">Onboarding</a>
+      <a href="#runtime" class="text-sm text-slate-700 hover:text-slate-900">Run-time & RCA</a>
+      <a href="#docs" class="text-sm text-slate-700 hover:text-slate-900">Docs & Handover</a>
+      <a href="#analytics" class="text-sm text-slate-700 hover:text-slate-900">Analytics/ML</a>
+      <a href="#advanced" class="text-sm text-slate-700 hover:text-slate-900">Advanced Scenario</a>
+    </nav>
+
+    <!-- Back to Portfolio (pinned to the far right) -->
+    <a href="integrations-volvo.html#runtime"
+       class="ml-auto hidden md:inline-flex items-center rounded-full bg-slate-900 px-4 py-2 text-white text-sm font-medium shadow hover:bg-slate-800">
+      ← Back to Portfolio
+    </a>
+
+    <!-- Mobile back (shows when nav is hidden) -->
+    <a href="integrations-volvo.html#runtime"
+       class="md:hidden ml-auto inline-flex items-center rounded-full bg-slate-900 px-3 py-1.5 text-white text-sm shadow">
+      ← Back
+    </a>
+  </div>
+</header>
+
 
   <section id="volvo-case-study" class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-10">
     <p class="text-sm font-semibold text-slate-500">Tailored for</p>
